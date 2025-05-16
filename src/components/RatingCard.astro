@@ -1,0 +1,57 @@
+---
+interface Props {
+    title: string;
+    value: string | number;
+}
+const { title, value } = Astro.props;
+
+function getColor(value: string | number) {
+    switch (value) {
+        case 0: {
+            return "text-slate-500";
+        }
+        case 1: {
+            return "text-red-500";
+        }
+        case 2: {
+            return "text-yellow-500";
+        }
+        case 3: {
+            return "text-lime-500";
+        }
+        case 4: {
+            return "text-teal-500";
+        }
+        case 5: {
+            return "text-indigo-500";
+        }
+        case "F": {
+            return "text-red-500";
+        }
+        case "D": {
+            return "text-amber-500";
+        }
+        case "C": {
+            return "text-lime-500";
+        }
+        case "B": {
+            return "text-sky-500";
+        }
+        case "A": {
+            return "text-violet-500";
+        }
+        case "S": {
+            return "text-fuchsia-500";
+        }
+        default: {
+            throw new Error("Uknown value passed in");
+        }
+    }
+}
+
+const color = getColor(value);
+---
+<div class="bg-[#fcfcfc] p-4 rounded-xl text-center font-manrope shadow-lg max-w-200 border border-gray-200">
+    <p class={`text-3xl font-bold ${color}`}>{typeof value === "number" ? `${value}/5` : value}</p>
+    <p class="">{title}</p>
+</div>

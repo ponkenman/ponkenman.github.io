@@ -1,0 +1,146 @@
+---
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import { MobileNavbar } from "../../components/MobileNavbar";
+import "../../styles/global.css";
+import { getCollection } from "astro:content";
+
+interface Props {
+	key: string;
+	primaryColor: string;
+	secondaryColor: string;
+	thumbnail: string;
+	thumbnailUrl: string;
+}
+
+const primaryColor = "bg-[#F7F7F7]";
+const secondaryColor = "bg-[#FAF8FF]";
+const reviews = await getCollection("reviews");
+
+interface Rating {
+	grade: "S"|"A"|"B"|"C"|"D"|"F";
+	description: string;
+}
+const ratings: Rating[] = [
+	{ grade: "S", description: "kino" },
+	{ grade: "A", description: "interesting" },
+	{ grade: "B", description: "ok" },
+	{ grade: "C", description: "boring" },
+	{ grade: "D", description: "dogshit" },
+	{ grade: "F", description: "affront to higher education" },
+];
+
+function getRatingColor(rating: "S"|"A"|"B"|"C"|"D"|"F") {
+	switch (rating) {
+		case "F": {
+			return "bg-red-400";
+		}
+		case "D": {
+			return "bg-amber-400";
+		}
+		case "C": {
+			return "bg-lime-400";
+		}
+		case "B": {
+			return "bg-sky-400";
+		}
+		case "A": {
+			return 'bg-violet-400';
+		}
+		case "S": {
+			return "bg-fuchsia-400";
+		}
+	}
+}
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+		<title>W</title>
+		<style define:vars={{ secondaryColor: secondaryColor.substring(4, secondaryColor.length - 1) }}>
+			main {
+				animation: 0.5s ease-out fadeInUp;
+			}
+			main.transition {
+				background-color: var(--secondaryColor);
+				transition-duration: 1.5s;
+			}
+
+			main:not(.transition) {
+				transition-duration: 1.5s;
+			}
+
+
+			:global(.animate-visible) {
+				animation: 0.5s ease-in fadeInUp;
+			}
+		</style>
+	</head>
+	<body>
+		<Navbar color={secondaryColor} secondaryColor={primaryColor.substring(4, primaryColor.length - 1)}/>
+		<MobileNavbar client:load color={secondaryColor} />
+		<div id="empty-div-top" class="h-[1px] w-[1px]"></div>
+		<main class={`${primaryColor} md:mt-24 pb-24 md:px-14 lg:px-25 md:pt-12 text-black px-5`}>
+			<hgroup class="md:px-0 sm:pb-14">
+				<h1 id="reviews-title" class="font-playfair italic font-bold text-2xl sm:text-7xl my-3 p-3">UNSW Course Reviews</h1>
+			</hgroup>
+			<section class="flex flex-col items-center font-manrope gap-3 p-3 sm:p-0 rounded-3xl overflow-hidden">
+				{ratings.map(ra => 
+					<div class="grid grid-cols-12 justify-center w-full smm:px-21 sm:p-0 rounded-2xl overflow-hidden sm:rounded-none sm:overflow-auto">
+						<div class={`${getRatingColor(ra.grade)} px-3 shadow-md col-span-12 sm:col-span-4 sm:text-lg text-center flex flex-col items-center justify-center py-3`}>
+							<span class="sm:text-4xl text-xl font-playfair italic">{ra.grade}</span>
+							<span class="text-md font-bv">{ra.description}</span>
+						</div>
+						<ul class={`shadow-md bg-neutral-200 sm:text-md text-sm col-span-12 sm:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 list-none min-h-30 p-6`}>
+							{ reviews.filter(r => r.data.rating === ra.grade).toSorted((a, b) => a.data.id.localeCompare(b.data.id)).map(r => 
+							<li class={`${primaryColor} text-center flex flex-col min-h-15 rounded-xl border border-gray-200 shadow-md`}>
+								<a class="cursor-pointer hover:underline flex flex-col justify-center items-center p-7" href={`/reviews/${r.data.id.toLowerCase()}`} data-astro-prefetch>
+									<span class="font-bold">{r.data.id}</span>
+									<span class="font-playfair">{r.data.longTitle}</span>
+								</a>
+							</li>)}
+						</ul>
+					</div>
+				)}
+			</section>
+		</main>
+		<Footer color={secondaryColor} />
+		<script>
+			// Transition main and nav when scrolled down
+			const main = document.getElementsByTagName("main")[0];
+			const nav = document.getElementsByTagName("nav")[0];
+			const o = new IntersectionObserver(entries => {
+				entries.forEach(e => {
+					main.classList.toggle("transition", !e.isIntersecting);
+					nav.classList.toggle("transition", !e.isIntersecting)
+				});
+			});
+			o.observe(document.getElementById("empty-div-top") as Element);
+		</script>
+		<script>
+			// Make bg colour of main same colour as entire body
+			const body = document.getElementsByTagName("body")[0];
+        	const main = document.getElementsByTagName("main")[0];
+			if (body && main) {
+				body.style.backgroundColor = window.getComputedStyle(main).backgroundColor;
+			}
+		</script>
+		<script>
+			// Make cards transition when first viewed
+			const o = new IntersectionObserver(entries => {
+				entries.forEach(e => {
+					if (e.isIntersecting) {
+						e.target.classList.toggle("animate-visible", true);
+					}
+				}, { old: 0.25 });
+			});
+			Array.from(document.getElementsByTagName("li")).forEach(e => {
+				o.observe(e);
+			});
+		</script>
+	</body>
+</html>

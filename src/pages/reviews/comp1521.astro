@@ -1,0 +1,127 @@
+---
+import ReviewSection from "../../components/ReviewSection.astro";
+import ReviewPage from "../../layouts/ReviewPage.astro";
+
+---
+<ReviewPage 
+	key="COMP1521"
+	primaryColor="bg-[#F4BDB9]"
+	secondaryColor="bg-[#F7EDF0]"
+	thumbnail="/images/comp1521.jpeg"
+	thumbnailUrl="https://commons.wikimedia.org/wiki/File:MIPS_R3010_die.JPG">
+	<ReviewSection title="Overview">
+		<p>Prerequisites: COMP1511</p>
+		<br/>
+		<p>This course was the first COMP course I felt ambivalent and largely neutral about. I originally thought of it as 
+			just COMP1511 part 2, but because of my scuffed degree progression (Computer Science / Law) I left it until my 
+			second year. While it is very interesting being able to understand what computers do at a lower level, the content 
+			itself simultaneously felt like it skirted too much around what was actually going on at a lower level while being 
+			so broad and discursive in its subject matter that you never felt like you were actually taking something away. 
+			I mean sure, you learned how to use the stats command to find out whether a path led to a file or a directory,
+			and use a bunch of random libraries that connect to processes but this all felt very tedious and not linked together 
+			very well.
+		</p>
+		<br /> 
+		<p>The first three weeks had you learning MIPS assembly language, which to be honest was very straightforward and 
+			interesting. However, the remainder of the topics in the second half of the course, such as learning how 
+			integers/floating points are stored, bitwise operations, files, and unicode all felt tedious and like learning a 
+			bunch of random and arbitrary rules and specifications. Processes and threads were only gone through in the last 
+			two weeks of the course in very minimal detail, but felt like the potentially most interesting part of the course... 
+			if only we had practice or an assignment where we could actually appreciate and show our appreciation for those topics 
+			rather than having them shove questions in the last two exam questions and calling it a day.
+		</p>
+		<br />
+		<p> Similarly to other first year courses, assessments are split into weekly labs and two assignments (first on MIPS, 
+			second on file systems) plus a final exam. There are also weekly tests which are much easier than the labs in terms 
+			of difficulty but get you practicing under time pressure.
+		</p>
+		<br />
+		<p>Overall, while this course has potential, it feels very weak in its discursive and meandering nature and feels a 
+			bit detached from what makes programming interesting (being able to solve actual problems and thinking creatively 
+			instead of just studying a bunch of specifications).
+		</p>
+	</ReviewSection>
+	<ReviewSection title="Difficulty">
+		<p>This course is not the most difficult conceptually, and all the challenge exercises set for the weekly labs 
+			were mostly doable, although coding full solutions could be a bit time consuming. The labs are quite similar in 
+			difficulty to any other first year course eg COMP1511, COMP1531, COMP2521, and it is easy to do them a week ahead 
+			(by first looking through next week's notes). The tests were also very chill and similar if not easier to the labs. 
+			The assignments are also relatively relaxed and you could finish them early as long as you started as soon as they 
+			were released.
+		</p>
+		<br />
+		<p>However, the final exam was quite a noticeable spike in difficulty - while the first five questions were relatively 
+			similar to the labs, my exam's question 6 had a very tedious unicode question that strangely wasn't really about 
+			testing your familiarity with the unicode specification (UTF-8) but rather whether you could handle them as either 
+			bits or strings. My question 7 had a file question that was like an entire stage of our second assignment. Q8 
+			featured some pretty intense C to MIPS translation with some crazy pointer arithmetic harder than anything in 
+			assignment 1, while Q9 and 10 were about the rarely tested processes and threads respectively. It was an interesting
+			decision to put such tedious and time consuming if not conceptually difficult questions in a three hour final exam, 
+			especially since this is one of those annoying subjects with a hurdle requirement.
+		</p>
+		<br />
+		<p>On one hand, maybe I just took an L and wasn't as good as I thought I was. On the other hand, there should be some 
+			point at which things are so absurdly difficult compared to the rest of the course it is like setting up students 
+			to fail or being spat on and then begging for more spit in your face. The sad thing is is that if processes, threads, 
+			or pipes were explored more thoroughly they could've been a great way for capable students to flex their knowledge.
+		</p>
+		<br />
+		<p>I feel like I'm the kind of person that can appreciate and be interested in something that is nuanced and difficult to 
+			understand, but here it felt these questions were only difficult because of a genuine error in teaching, or exams being 
+			an inappropriate way to test these kinds of knowledge. I've heard people say that COMP1521 is easier to pass but harder 
+			to get a HD in, and I think I agree with that.
+		</p>
+	</ReviewSection>
+	<ReviewSection title="Enjoyment">
+		<p>I was very interested in MIPS and translating C to MIPS and vice versa. This was by far the most interesting part of 
+			the course because it actually showed you what kind of abstractions C was using to take care of things for you. Being able 
+			to appreciate that firsthand was in my opinion quite underrated and helps you get a little bit of intuition into how 
+			programming languages work. I also enjoyed doing the assignment and creating a small cute cat rolling yarn game.
+		</p>
+		<br/>
+		<p> When we got to learning how integers are stored as bits, as well as floating point numbers and Unicode, this really just felt like 
+			learning specifications. It was in my opinion very tedious and really gutted this course from the momentum of genuine intrigue from 
+			the first few weeks of MIPS. I honestly don't understand how anyone can find binary representations of numbers and floating point interesting. 
+			It feels more like a fun fact that is being stretched out to something to spend like two to three weeks on. I could not give a single shit about 
+			bitwise operations and it felt like playing with actual toy building blocks and not at least something interesting or intellectually stimulating.
+		</p>
+		<br/>
+		<p>File systems were more interesting (especially the recursion aspect which you explore in courses like COMP2521) but was also another case of learning 
+			specification ie looking up how opendir(), fopen(), and stat() work. There was a hidden element of string manipulation (eg generating a new path string 
+			using an existing path to open a directory in another directory being searched), but that alone did not prevent this part from otherwise being quite tedious. 
+			I liked the cryptography aspect of assignment 2, however, as well as finally understanding what 'streams' of data in C were.
+		</p>
+		<br/>
+		<p>Processes and threads had the potential to be very interesting but it really was just skirted over without any real care or appreciation. I think the problems 
+			could have been the most interesting conceptually based on the minimal exposure we had to them from the labs eg using threads to make a program faster via 
+			concurrency or being able to spawn and wait for new processes which run programs based on user input.
+		</p>
+	</ReviewSection>
+	<ReviewSection title="Effort">
+		<p>Time is the least of your concerns in this course. I overloaded to do four subjects this term and it was all pretty manageable because this course only took, 
+			I would guess, around 3-4 hours per week to do labs and weekly tests, with each assignment taking around 10-15 hours overall. Maybe if you wanted to do the 
+			challenge exercises as well it would add 0-4 hours depending on the task. 
+		</p>
+	</ReviewSection>
+	<ReviewSection title="Delivery">
+		<p>Before I comment I just want to say I appreciate that this course is the product of many successive years of hard work and refinement to ensure that students at UNSW 
+			are learning what this course has to offer. This is not a personal insult to anyone involved. Moving that aside, if it were me, I would have kept the first three weeks 
+			of MIPS the same, reduced learning about integers, bitwise operations, floating point and Unicode to maybe one week max, spent one-two weeks on file systems, 
+			at least two-three weeks on processes and threads. Maybe its obvious by now but I really did not like the 'specification' aspect of this course.
+		</p>
+		<br />
+		<p>I also cannot comment on things like lecture or tutor quality because I never attended or watched any... maybe that explains some of my criticism...
+		</p>
+	</ReviewSection>
+	<ReviewSection title="Utility">
+		<p>I had to take this course as it was a prerequsite for Operating Systems (COMP3231/COMP3891) which I hear is kino but haven't taken yet as of writing this off the back of 
+			my 25T1 exams. This course is also mandatory for Computer Science students so its not like you have a choice. Honestly, however, while this course was perhaps the most 
+			boring overall of COMP courses I've taken so far, its still worthwhile even to just learn about assembly language and amass general knowledge about how computers work.
+		</p>
+		<br />
+		<p>Was this course worth the price of $1 164, ie paying $130 per week? Honestly, you learn so much but in not that much depth that it doesn't really feel that worth it, 
+			especially for those boring as fuck weeks of literally just specifications. I guess its barely worth it at least for being part of the community and having notes and resources 
+			immediately at your fingertips, as well as labs and tests.
+		</p>
+	</ReviewSection>
+</ReviewPage>

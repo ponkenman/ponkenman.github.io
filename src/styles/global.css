@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "PlayfairDisplay";
+  src: url("public/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "PlayfairDisplay";
+  src: url("public/fonts/Playfair_Display/PlayfairDisplay-Italic-VariableFont_wght.ttf") format("ttf");
+  font-style: italic
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url("public/fonts/Manrope/Manrope[wght].ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "Baskerville";
+  src: url("public/fonts/Baskervville/Baskervville-Regular.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "Baskerville";
+  src: url("public/fonts/Baskervville/Baskervville-Italic.ttf") format("ttf");
+  font-style: italic;
+}
+
+#root {
+  margin: 0 auto;
+}
+
+@theme {
+  --font-playfair: "PlayfairDisplay", serif;
+  --font-manrope: "Manrope", sans-serif;
+  --font-bv: "Baskerville", serif;
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(-10px);
+        opacity: 0%;
+    }
+    100% {
+        transform: translateY(0%);
+        opacity: 100%;
+    }
+}
+
+@keyframes fadeInUpNav {
+    0% {
+        transform: translateY(-10px);
+        opacity: 0%;
+    }
+    100% {
+        transform: translateY(0%);
+        opacity: 100%;
+    }
+}
