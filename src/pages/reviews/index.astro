@@ -13,8 +13,9 @@ interface Props {
 	thumbnailUrl: string;
 }
 
-const primaryColor = "bg-[#F7F7F7]";
-const secondaryColor = "bg-[#FAF8FF]";
+const primaryColor = "bg-indigo-50";
+const secondaryColor = "bg-indigo-100";
+const borderColor = "border-[#808080]";
 const reviews = await getCollection("reviews");
 
 interface Rating {
@@ -33,22 +34,22 @@ const ratings: Rating[] = [
 function getRatingColor(rating: "S"|"A"|"B"|"C"|"D"|"F") {
 	switch (rating) {
 		case "F": {
-			return "bg-red-400";
+			return "bg-red-300";
 		}
 		case "D": {
-			return "bg-amber-400";
+			return "bg-amber-300";
 		}
 		case "C": {
-			return "bg-lime-400";
+			return "bg-lime-300";
 		}
 		case "B": {
-			return "bg-sky-400";
+			return "bg-sky-300";
 		}
 		case "A": {
-			return 'bg-violet-400';
+			return 'bg-violet-300';
 		}
 		case "S": {
-			return "bg-fuchsia-400";
+			return "bg-fuchsia-300";
 		}
 	}
 }
@@ -81,23 +82,25 @@ function getRatingColor(rating: "S"|"A"|"B"|"C"|"D"|"F") {
 		</style>
 	</head>
 	<body>
-		<Navbar color={secondaryColor} secondaryColor={primaryColor.substring(4, primaryColor.length - 1)}/>
+		<Navbar color={secondaryColor} secondaryColor={`oklch(93% 0.034 272.788)`}/>
 		<MobileNavbar client:load color={secondaryColor} />
 		<div id="empty-div-top" class="h-[1px] w-[1px]"></div>
-		<main class={`${primaryColor} md:mt-24 pb-24 md:px-14 lg:px-25 md:pt-12 text-black px-5`}>
-			<hgroup class="md:px-0 sm:pb-14">
-				<h1 id="reviews-title" class="font-playfair italic font-bold text-2xl sm:text-7xl my-3 p-3">UNSW Course Reviews</h1>
+		<main class={`${primaryColor} md:mt-12 pb-24 md:px-14 lg:px-25 md:pt-12 text-black px-5`}>
+			<hgroup class="md:px-0 sm:pb-12">
+				<h1 id="reviews-title" class="font-bv text-2xl sm:text-5xl my-3 p-3">UNSW Course Reviews</h1>
 			</hgroup>
-			<section class="flex flex-col items-center font-manrope gap-3 p-3 sm:p-0 rounded-3xl overflow-hidden">
-				{ratings.map(ra => 
-					<div class="grid grid-cols-12 justify-center w-full smm:px-21 sm:p-0 rounded-2xl overflow-hidden sm:rounded-none sm:overflow-auto">
-						<div class={`${getRatingColor(ra.grade)} px-3 shadow-md col-span-12 sm:col-span-4 sm:text-lg text-center flex flex-col items-center justify-center py-3`}>
-							<span class="sm:text-4xl text-xl font-playfair italic">{ra.grade}</span>
-							<span class="text-md font-bv">{ra.description}</span>
+			<section class=`flex flex-col gap-3 sm:gap-0 items-center font-manrope rounded-lg overflow-hidden sm:divide-y-[1px] sm:divide-slate-300 sm:border border-slate-300`>
+				{ratings.map((ra, i) => 
+					<div class="grid grid-cols-12 justify-center w-full sm:p-0 rounded-lg overflow-hidden sm:rounded-none sm:overflow-auto  border-slate-300 border sm:border-none">
+						<div class={`${getRatingColor(ra.grade)} px-3 col-span-12 sm:col-span-2 lg:col-span-1 sm:text-lg text-center flex flex-col items-center py-3`}>
+							<div class={`${primaryColor} flex flex-col justify-center px-4 border border-slate-300 rounded-lg my-2 shadow-md`}>
+								<span class="text-lg font-manrope">{ra.grade}</span>
+							</div>
+							<span class="text-xs font-bv">{ra.description}</span>
 						</div>
-						<ul class={`shadow-md bg-neutral-200 sm:text-md text-sm col-span-12 sm:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 list-none min-h-30 p-6`}>
+						<ul class={`${i % 2 === 0 ? secondaryColor : `sm:bg-indigo-50 bg-indigo-100`} sm:text-md text-sm col-span-12 sm:col-span-10 lg:col-span-11 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-x-3 sm:gap-y-6 list-none min-h-30 p-6`}>
 							{ reviews.filter(r => r.data.rating === ra.grade).toSorted((a, b) => a.data.id.localeCompare(b.data.id)).map(r => 
-							<li class={`${primaryColor} text-center flex flex-col min-h-15 rounded-xl border border-gray-200 shadow-md`}>
+							<li class={`${primaryColor} text-center flex flex-col min-h-15 rounded-lg border border-slate-300 hover:bg-black hover:text-white shadow-sm`}>
 								<a class="cursor-pointer hover:underline flex flex-col justify-center items-center p-7" href={`/reviews/${r.data.id.toLowerCase()}`} data-astro-prefetch>
 									<span class="font-bold">{r.data.id}</span>
 									<span class="font-playfair">{r.data.longTitle}</span>
@@ -110,12 +113,10 @@ function getRatingColor(rating: "S"|"A"|"B"|"C"|"D"|"F") {
 		</main>
 		<Footer color={secondaryColor} />
 		<script>
-			// Transition main and nav when scrolled down
-			const main = document.getElementsByTagName("main")[0];
+			// Transition nav when scrolled down
 			const nav = document.getElementsByTagName("nav")[0];
 			const o = new IntersectionObserver(entries => {
 				entries.forEach(e => {
-					main.classList.toggle("transition", !e.isIntersecting);
 					nav.classList.toggle("transition", !e.isIntersecting)
 				});
 			});

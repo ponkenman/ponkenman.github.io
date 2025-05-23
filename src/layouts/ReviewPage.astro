@@ -52,7 +52,7 @@ const { data }  = entry;
 	<body>
 		<Navbar color={secondaryColor} secondaryColor={primaryColor.substring(4, primaryColor.length - 1)}/>
 		<MobileNavbar client:load color={secondaryColor} />
-		<main class={`${primaryColor} md:pt-24 md:px-25 text-black h-full`}>
+		<main class={`${primaryColor} md:pt-12 md:px-25 text-black h-full`}>
 			<div class="px-5 md:px-0 md:py-14 py-10">
 				<a data-astro-prefetch class={`${secondaryColor} p-3 rounded-2xl hover:underline hover:bg-black hover:text-white cursor-pointer`} href="/reviews">← See other reviews</a>
 			</div>
@@ -62,7 +62,7 @@ const { data }  = entry;
 				</a>
 				<section class="p-3">
 					<h1 class="font-bv text-2xl sm:text-4xl my-3">UNSW Course Reviews</h1>
-					<h2 class="font-playfair font-bold italic text-4xl sm:text-6xl my-3">{`${data.id}: ${data.longTitle}`}</h2>
+					<h2 class="font-playfair font-bold text-4xl sm:text-6xl my-3">{`${data.id}: ${data.longTitle}`}</h2>
 					<p class="font-bv text-md sm:text-xl my-3">{((date) => `${date[1]} ${date[2]}, ${date[3]}`)(new Date(data.dateReviewed).toDateString().split(" "))}</p>
 					<div class="mt-6">
 						<div class="gap-2 mt-3 flex flex-row">
