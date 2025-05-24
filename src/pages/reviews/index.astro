@@ -7,130 +7,131 @@ import { getCollection } from "astro:content";
 import { ClientRouter } from "astro:transitions";
 
 interface Props {
-	key: string;
-	primaryColor: string;
-	secondaryColor: string;
-	thumbnail: string;
-	thumbnailUrl: string;
+  key: string;
+  primaryColor: string;
+  secondaryColor: string;
+  thumbnail: string;
+  thumbnailUrl: string;
 }
 
-const primaryColor = "bg-indigo-50";
-const secondaryColor = "bg-indigo-100";
-const reviews = await getCollection("reviews");
+const primaryColor = `bg-indigo-50`;
+const secondaryColor = `bg-indigo-100`;
+const reviews = await getCollection(`reviews`);
 
 interface Rating {
-	grade: "S"|"A"|"B"|"C"|"D"|"F";
-	description: string;
+  grade: `S` | `A` | `B` | `C` | `D` | `F`;
+  description: string;
 }
 const ratings: Rating[] = [
-	{ grade: "S", description: "kino" },
-	{ grade: "A", description: "interesting" },
-	{ grade: "B", description: "ok" },
-	{ grade: "C", description: "boring" },
-	{ grade: "D", description: "dogshit" },
-	{ grade: "F", description: "affront to higher education" },
+  { grade: `S`, description: `kino` },
+  { grade: `A`, description: `interesting` },
+  { grade: `B`, description: `ok` },
+  { grade: `C`, description: `boring` },
+  { grade: `D`, description: `dogshit` },
+  { grade: `F`, description: `affront to higher education` },
 ];
 
-function getRatingColor(rating: "S"|"A"|"B"|"C"|"D"|"F") {
-	switch (rating) {
-		case "F": {
-			return "bg-red-300";
-		}
-		case "D": {
-			return "bg-amber-300";
-		}
-		case "C": {
-			return "bg-lime-300";
-		}
-		case "B": {
-			return "bg-sky-300";
-		}
-		case "A": {
-			return 'bg-violet-300';
-		}
-		case "S": {
-			return "bg-fuchsia-300";
-		}
-	}
+function getRatingColor(rating: `S` | `A` | `B` | `C` | `D` | `F`) {
+  switch (rating) {
+    case `F`: {
+      return `bg-red-300`;
+    }
+    case `D`: {
+      return `bg-amber-300`;
+    }
+    case `C`: {
+      return `bg-lime-300`;
+    }
+    case `B`: {
+      return `bg-sky-300`;
+    }
+    case `A`: {
+      return `bg-violet-300`;
+    }
+    case `S`: {
+      return `bg-fuchsia-300`;
+    }
+  }
 }
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="generator" content={Astro.generator} />
-		<title>W</title>
-		<style define:vars={{ secondaryColor: secondaryColor.substring(4, secondaryColor.length - 1) }}>
-			main {
-				animation: 0.5s ease-out fadeInUp;
-			}
-			main.transition {
-				background-color: var(--secondaryColor);
-				transition-duration: 1.5s;
-			}
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>W</title>
+    <style define:vars={{ secondaryColor: secondaryColor.substring(4, secondaryColor.length - 1) }}>
+      main {
+        animation: 0.5s ease-out fadeInUp;
+      }
+      main.transition {
+        background-color: var(--secondaryColor);
+        transition-duration: 1.5s;
+      }
 
-			main:not(.transition) {
-				transition-duration: 1.5s;
-			}
+      main:not(.transition) {
+        transition-duration: 1.5s;
+      }
 
-
-			:global(.animate-visible) {
-				animation: 0.5s ease-in fadeInUp;
-			}
-		</style>
-		<ClientRouter />
-	</head>
-	<body>
-		<Navbar color={secondaryColor} secondaryColor={`oklch(93% 0.034 272.788)`}/>
-		<MobileNavbar client:load color={secondaryColor} />
-		<div id="empty-div-top" class="h-[1px] w-[1px]"></div>
-		<main class={`${primaryColor} md:mt-12 pb-24 md:px-14 lg:px-25 md:pt-12 text-black px-5`}>
-			<hgroup class="md:px-0 sm:pb-12">
-				<h1 id="reviews-title" class="font-playfair font-bold text-2xl sm:text-5xl my-3 p-3">UNSW Course Tier List</h1>
-			</hgroup>
-			<section class=`flex flex-col gap-3 sm:gap-0 items-center font-manrope rounded-lg overflow-hidden sm:divide-y-[1px] sm:divide-slate-300 sm:border border-slate-300`>
-				{ratings.map((ra, i) => 
-					<div class="grid grid-cols-12 justify-center w-full sm:p-0 rounded-lg overflow-hidden sm:rounded-none sm:overflow-auto  border-slate-300 border sm:border-none">
-						<div class={`${getRatingColor(ra.grade)} px-3 col-span-12 sm:col-span-2 lg:col-span-1 sm:text-lg text-center flex flex-col items-center py-3`}>
-							<div class={`bg-[#fcfcfc] flex flex-col justify-center px-3 border border-slate-300 rounded-lg my-2 shadow-ld`}>
-								<span class="text-sm font-manrope">{ra.grade}</span>
-							</div>
-							<span class="text-xs font-bv">{ra.description}</span>
-						</div>
-						<ul class={`${i % 2 === 0 ? secondaryColor : `sm:bg-indigo-50 bg-indigo-100`} sm:text-md text-sm col-span-12 sm:col-span-10 lg:col-span-11 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-x-3 sm:gap-y-6 list-none min-h-30 p-6`}>
-							{ reviews.filter(r => r.data.rating === ra.grade).toSorted((a, b) => a.data.id.localeCompare(b.data.id)).map(r => 
-							<li class={`bg-[#fcfcfc] text-center flex flex-col min-h-15 rounded-lg hover:bg-black hover:text-white shadow-md`}>
-								<a class="cursor-pointer hover:underline flex flex-col justify-center items-center p-3" href={`/reviews/${r.data.id.toLowerCase()}`} data-astro-prefetch>
-									<span class="font-bold">{r.data.id}</span>
-									<span class="font-playfair">{r.data.longTitle}</span>
-								</a>
-							</li>)}
-						</ul>
-					</div>
-				)}
-			</section>
-		</main>
-		<Footer color={secondaryColor} />
-		<script>
-			// Transition nav when scrolled down
-			const handler = () => {
-				const nav = document.getElementById("big-nav") as HTMLElement;
-				const o = new IntersectionObserver(entries => {
-					entries.forEach(e => {
-						nav.classList.toggle("transition", !e.isIntersecting);
-					});
-				});
-				o.observe(document.getElementById("empty-div-top") as Element);	
-			}
-			document.addEventListener("astro:page-load", handler);
-			// Before transition, empty-div-top will no longer exist, so remove
-			document.addEventListener("astro:before-preparation", () => {
-				document.removeEventListener("astro:page-load", handler);
-			});
-		</script>
-		<script>
+      :global(.animate-visible) {
+        animation: 0.5s ease-in fadeInUp;
+      }
+    </style>
+    <ClientRouter />
+  </head>
+  <body>
+    <Navbar color={secondaryColor} secondaryColor="oklch(93% 0.034 272.788)" />
+    <MobileNavbar client:load color={secondaryColor} />
+    <div id="empty-div-top" class="h-[1px] w-[1px]"></div>
+    <main class={`${primaryColor} md:mt-12 pb-24 md:px-14 lg:px-25 md:pt-12 text-black px-5`}>
+      <hgroup class="md:px-0 sm:pb-12">
+        <h1 id="reviews-title" class="font-playfair font-bold text-2xl sm:text-5xl my-3 p-3">UNSW Course Tier List</h1>
+      </hgroup>
+      <section class=`flex flex-col gap-3 sm:gap-0 items-center font-manrope rounded-lg overflow-hidden sm:divide-y-[1px] sm:divide-slate-300 sm:border border-slate-300`>
+        {ratings.map((ra, i) => (
+          <div class="grid grid-cols-12 justify-center w-full sm:p-0 rounded-lg overflow-hidden sm:rounded-none sm:overflow-auto  border-slate-300 border sm:border-none">
+            <div class={`${getRatingColor(ra.grade)} px-3 col-span-12 sm:col-span-2 lg:col-span-1 sm:text-lg text-center flex flex-col items-center py-3`}>
+              <div class="bg-[#fcfcfc] flex flex-col justify-center px-3 border border-slate-300 rounded-lg my-2 shadow-ld">
+                <span class="text-sm font-manrope">{ra.grade}</span>
+              </div>
+              <span class="text-xs font-bv">{ra.description}</span>
+            </div>
+            <ul class={`${i % 2 === 0 ? secondaryColor : `sm:bg-indigo-50 bg-indigo-100`} sm:text-md text-sm col-span-12 sm:col-span-10 lg:col-span-11 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-x-3 sm:gap-y-6 list-none min-h-30 p-6`}>
+              { reviews.filter(r => r.data.rating === ra.grade).toSorted((a, b) => a.data.id.localeCompare(b.data.id)).map(r => (
+                <li class="bg-[#fcfcfc] text-center flex flex-col min-h-15 rounded-lg hover:bg-black hover:text-white shadow-md">
+                  <a class="cursor-pointer hover:underline flex flex-col justify-center items-center p-3" href={`/reviews/${r.data.id.toLowerCase()}`} data-astro-prefetch>
+                    <span class="font-bold">{r.data.id}</span>
+                    <span class="font-playfair">{r.data.longTitle}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ),
+        )}
+      </section>
+    </main>
+    <Footer color={secondaryColor} />
+    <script>
+      // Transition nav when scrolled down
+      const handler = () => {
+        const nav = document.getElementById("big-nav") as HTMLElement;
+        const o = new IntersectionObserver(entries => {
+          entries.forEach(e => {
+            nav.classList.toggle("transition", !e.isIntersecting);
+          });
+        });
+        o.observe(document.getElementById("empty-div-top") as Element);	
+      }
+      document.addEventListener("astro:page-load", handler);
+      // Before transition, empty-div-top will no longer exist, so remove
+      document.addEventListener("astro:before-preparation", () => {
+        document.removeEventListener("astro:page-load", handler);
+      });
+	  </script>
+    <script>
 			// Make bg colour of main same colour as entire body
 			document.addEventListener("astro:page-load", () => {
 				const body = document.getElementsByTagName("body")[0];
@@ -139,8 +140,8 @@ function getRatingColor(rating: "S"|"A"|"B"|"C"|"D"|"F") {
 					body.style.backgroundColor = window.getComputedStyle(main).backgroundColor;
 				}	
 			});
-		</script>
-		<script>
+	  </script>
+    <script>
 			// Make cards transition when first viewed
 			document.addEventListener("astro:page-load", () => {
 			const o = new IntersectionObserver(entries => {
@@ -155,6 +156,6 @@ function getRatingColor(rating: "S"|"A"|"B"|"C"|"D"|"F") {
 				o.observe(e);
 			});	
 			});
-		</script>
-	</body>
+	  </script>
+  </body>
 </html>

@@ -2,9 +2,9 @@ import { resolve } from 'path';
 
 export default {
   // config options
-   resolve: {
+  resolve: {
     alias: {
-      $fonts: resolve('./public/fonts')
-    }
-  }
-}
+      $fonts: resolve(`./public/fonts`),
+    },
+  },
+};

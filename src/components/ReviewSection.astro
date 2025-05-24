@@ -2,12 +2,12 @@
 import UnderlineBreak from "./UnderlineBreak.astro";
 
 interface Props {
-    title: string;
+  title: string;
 }
 const { title } = Astro.props;
 ---
 <section class="py-7 lg:p-14 lg:px-28">
-    <h3 class="font-playfair text-2xl">{title}</h3>
-    <UnderlineBreak />
-    <slot />
+  <h3 class="font-playfair text-2xl">{title}</h3>
+  <UnderlineBreak />
+  <slot />
 </section>
