@@ -73,7 +73,7 @@ const { data }  = entry;
 					</div>
 				</section>
 			</hgroup>
-			<article class={`${secondaryColor} px-5 mt-7 md:p-7 xl:p-14 md:rounded-t-3xl flex flex-col font-manrope`}>
+			<article id="review-article" class={`${secondaryColor} px-5 mt-7 md:p-7 xl:p-14 md:rounded-t-3xl flex flex-col font-manrope`}>
 				<slot />
 				<ReviewSection title="Scoring">
 					<div class="grid grid-cols-2 md:grid-cols-3 md:gap-5 gap-3 md:my-14">
@@ -99,15 +99,14 @@ const { data }  = entry;
 						}
 					}, { threshold: 0.5 });
 				});
-				Array.from(document.getElementsByTagName("article")[0].children).forEach(e => {
+				const article = document.querySelector("#review-article");
+				if (article) {
+					Array.from(document.getElementsByTagName("article")[0].children).forEach(e => {
 					o.observe(e);
 				});
+				}
 			}
 			document.addEventListener("astro:page-load", handler);
-			// As children will no longer exist, remove event listener
-			document.addEventListener("astro:before-preparation", () => {
-				document.removeEventListener("astro:page-load", handler);
-			})
 		</script>
 		<script>
 			// Add functionality to back to top button
