@@ -1,4 +1,5 @@
 ---
+import InTextLink from "../../components/InTextLink.astro";
 import ReviewSection from "../../components/ReviewSection.astro";
 import ReviewPage from "../../layouts/ReviewPage.astro";
 
@@ -11,7 +12,7 @@ import ReviewPage from "../../layouts/ReviewPage.astro";
   thumbnailUrl="https://unsplash.com/photos/a-tree-in-a-field-8ykLMoz_nCw"
 >
   <ReviewSection title="Overview">
-    <p>Prerequisites: COMP1511</p>
+    <p>Prerequisites: <InTextLink link="/reviews/comp1511" color="text-[#ff5500]">COMP1511</InTextLink></p>
     <br />
     <p>
       A very interesting course that shifts between the most boring thing in the world to the most fun and intellectually stimulating
@@ -41,14 +42,14 @@ import ReviewPage from "../../layouts/ReviewPage.astro";
       There are a lot of new data structures that were a bit hard to learn at first, but eventually through regular practice you get familiar with them
       (eg binary search trees, graphs, heaps, hash tables). The most difficult thing is potentially knowing how to accurately define the big-O notation
       of some more complicated algorithms that you create yourself. However, everything is doable with enough effort and as long as you put in the practice
-      it isn't difficult to the point of debillitation! This course was also a lot like MATH1081 in terms of subject matter (graphs and creative thinking) so
+      it isn't difficult to the point of debillitation! This course was also a lot like <InTextLink link="/reviews/math1081" color="text-[#ff5500]">MATH1081</InTextLink> in terms of subject matter (graphs and creative thinking) so
       take them together like I did for an easier time!
     </p>
   </ReviewSection>
   <ReviewSection title="Enjoyment">
     <p>
       Some of this shit is boring as fuck its unreal (eg sorts). However some of this is also super interesting (eg using trees and graphs to model, playing around
-      with stacks and queues). This is like extending the good parts of COMP1511 (ie solving fun problems in creative and interesting ways) with some more complicated but
+      with stacks and queues). This is like extending the good parts of <InTextLink link="/reviews/comp1511" color="text-[#ff5500]">COMP1511</InTextLink> (ie solving fun problems in creative and interesting ways) with some more complicated but
       ultimately understandable data structures.
     </p>
   </ReviewSection>
@@ -60,7 +61,6 @@ import ReviewPage from "../../layouts/ReviewPage.astro";
   </ReviewSection>
   <ReviewSection title="Delivery">
     <p>
-      {` `}
       It gets a bit tight near the end of the term where you learn about hash tables and tries but don't really have that much time to play around with them. However, the
       labs are a good place to get practice. Honestly the lectures are abysmal and this is the first course I lowkey just stopped bothering with COMP lectures. It's a lowkey shame
       because this course would otherwise be spectacular (or maybe it's just a sign of my "learning" growing beyond lectures or whatever).

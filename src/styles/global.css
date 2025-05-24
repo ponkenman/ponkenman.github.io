@@ -67,3 +67,13 @@
         opacity: 100%;
     }
 }
+
+/*Class representing links to other pages on same website*/
+.link-to {
+  color: gray;
+}
+
+.link-to:hover {
+  font-weight: bold;
+  text-decoration: underline;
+}

@@ -1,4 +1,5 @@
 ---
+import InTextLink from "../../components/InTextLink.astro";
 import ReviewSection from "../../components/ReviewSection.astro";
 import ReviewPage from "../../layouts/ReviewPage.astro";
 
@@ -11,11 +12,11 @@ import ReviewPage from "../../layouts/ReviewPage.astro";
   thumbnailUrl="https://commons.wikimedia.org/wiki/File:MIPS_R3010_die.JPG"
 >
   <ReviewSection title="Overview">
-    <p>Prerequisites: COMP1511</p>
+    <p>Prerequisites: <InTextLink link="/reviews/comp1511" color="text-[#dd2f22]">COMP1511</InTextLink></p>
     <br />
     <p>
       This course was the first COMP course I felt ambivalent and largely neutral about. I originally thought of it as
-      just COMP1511 part 2, but because of my scuffed degree progression (Computer Science / Law) I left it until my
+      just <InTextLink link="/reviews/comp1511" color="text-[#dd2f22]">COMP1511</InTextLink> part 2, but because of my scuffed degree progression (Computer Science / Law) I left it until my
       second year. While it is very interesting being able to understand what computers do at a lower level, the content
       itself simultaneously felt like it skirted too much around what was actually going on at a lower level while being
       so broad and discursive in its subject matter that you never felt like you were actually taking something away.
@@ -35,7 +36,6 @@ import ReviewPage from "../../layouts/ReviewPage.astro";
     </p>
     <br />
     <p>
-      {` `}
       Similarly to other first year courses, assessments are split into weekly labs and two assignments (first on MIPS,
       second on file systems) plus a final exam. There are also weekly tests which are much easier than the labs in terms
       of difficulty but get you practicing under time pressure.
@@ -51,7 +51,8 @@ import ReviewPage from "../../layouts/ReviewPage.astro";
     <p>
       This course is not the most difficult conceptually, and all the challenge exercises set for the weekly labs
       were mostly doable, although coding full solutions could be a bit time consuming. The labs are quite similar in
-      difficulty to any other first year course eg COMP1511, COMP1531, COMP2521, and it is easy to do them a week ahead
+      difficulty to any other first year course eg <InTextLink link="/reviews/comp1511" color="text-[#dd2f22]">COMP1511</InTextLink>, 
+      <InTextLink link="/reviews/comp1531" color="text-[#dd2f22]">COMP1531</InTextLink>, <InTextLink link="/reviews/comp2521" color="text-[#dd2f22]">COMP2521</InTextLink>, and it is easy to do them a week ahead
       (by first looking through next week's notes). The tests were also very chill and similar if not easier to the labs.
       The assignments are also relatively relaxed and you could finish them early as long as you started as soon as they
       were released.
@@ -100,7 +101,7 @@ import ReviewPage from "../../layouts/ReviewPage.astro";
     </p>
     <br />
     <p>
-      File systems were more interesting (especially the recursion aspect which you explore in courses like COMP2521) but was also another case of learning
+      File systems were more interesting (especially the recursion aspect which you explore in courses <InTextLink link="/reviews/comp2521" color="text-[#dd2f22]">like COMP2521</InTextLink>) but was also another case of learning
       specification ie looking up how opendir(), fopen(), and stat() work. There was a hidden element of string manipulation (eg generating a new path string
       using an existing path to open a directory in another directory being searched), but that alone did not prevent this part from otherwise being quite tedious.
       I liked the cryptography aspect of assignment 2, however, as well as finally understanding what 'streams' of data in C were.

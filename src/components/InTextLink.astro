@@ -1,0 +1,10 @@
+---
+interface Props {
+    link: string;
+    color: string;
+}
+
+const { link, color } = Astro.props;
+
+---
+<a class={`${color} hover:underline inline`} href={link} data-astro-prefetch><slot/></a>

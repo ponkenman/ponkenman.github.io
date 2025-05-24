@@ -1,4 +1,5 @@
 ---
+import InTextLink from "../../components/InTextLink.astro";
 import ReviewSection from "../../components/ReviewSection.astro";
 import ReviewPage from "../../layouts/ReviewPage.astro";
 
@@ -11,7 +12,7 @@ import ReviewPage from "../../layouts/ReviewPage.astro";
   thumbnailUrl="https://unsplash.com/photos/computer-source-code-screengrab-bYiw48KLbmw"
 >
   <ReviewSection title="Overview">
-    <p>Prerequisites: COMP1531 and COMP2521</p>
+    <p>Prerequisites: <InTextLink link="/reviews/comp1531" color="text-[#6029d6]">COMP1531</InTextLink> and <InTextLink link="/reviews/comp2521" color="text-[#6029d6]">COMP2521</InTextLink></p>
     <br />
     <p>
       This is the greatest COMP course I have ever taken so far. Front end development is not only interesting as fuck but it
@@ -46,19 +47,19 @@ import ReviewPage from "../../layouts/ReviewPage.astro";
       as websites using only HTML and CSS, which I really liked and found quite fun and interesting and unique in a COMP course. The second assignment, which
       was really the course's single lab in disguise and stealing 5% from the first assignment, got you to add some simple interactivity using Javascript
       to a form (ie changing a message based on how inputs and checkboxes were filled in). I think Javascript and ultimately Typescript is, for now, my favourite
-      language to code in (you can check out my COMP1531 review for more). The second assignment definitely stepped up in difficulty but wasn't too bad - basically
+      language to code in (you can check out <InTextLink link="/reviews/comp1531" color="text-[#6029d6]">my COMP1531 review</InTextLink> for more). The second assignment definitely stepped up in difficulty but wasn't too bad - basically
       got you to manipulate the DOM dynamically with Javascript and create a shitty prototype version of Linkedin (called LurkForWork, honestly a nice name).
     </p>
     <br />
     <p>
       Assignment 4 is basically assignment 3 but harder and with React. Its not really that difficult but the sheer amount of features you need to add - you really are creating an entire
-      functional website - makes it quite long to work on. It used pretty much the exact same project idea as COMP1531 - creating a Kahoot ripoff - which I thought was a nice
-      callback to COMP1531. Its recommended you do assignment 4 with a partner, and my partner was a little shoddy and sometimes made me want to bash my head against a wall
+      functional website - makes it quite long to work on. It used pretty much the exact same project idea as <InTextLink link="/reviews/comp1531" color="text-[#6029d6]">COMP1531</InTextLink> - creating a Kahoot ripoff - which I thought was a nice
+      callback to <InTextLink link="/reviews/comp1531" color="text-[#6029d6]">COMP1531</InTextLink>. Its recommended you do assignment 4 with a partner, and my partner was a little shoddy and sometimes made me want to bash my head against a wall
       over and over again from their lowkey sheer incompetence and frustrating questions they'd ask me when if only they'd actually read the spec in their own time it would be answered
       for them, and this was also the only assignment I kind of had to rush the deadline for and thus got fucked over in because of it but whatever, and you can also do it by yourself
       with more lenience in the marking. Honestly maybe I really am just built different or whatever where I should have been more patient and less frustrated with my partner, but even in
       spite of the workload I probably would have done assignment 4 by myself even if I had the chance. I've heard people compare assignment 4's workload to completing the entirety
-      of the COMP1531 group project by yourself and I think I agree with that.
+      of the <InTextLink link="/reviews/comp1531" color="text-[#6029d6]">COMP1531</InTextLink> group project by yourself and I think I agree with that.
 
     </p>
     <br />
@@ -81,20 +82,19 @@ import ReviewPage from "../../layouts/ReviewPage.astro";
   <ReviewSection title="Difficulty">
     <p>
       In one of the first lectures (or maybe one from a previous course because before I took this I watched some public lectures to figure out whether it was worth it) this course was described as
-      being a different kind of difficult, as it focused more on depth rather than breadth. As an example, this course was juxtaposed with COMP2521 - where you learn very specific particular things
+      being a different kind of difficult, as it focused more on depth rather than breadth. As an example, this course was juxtaposed with <InTextLink link="/reviews/comp2521" color="text-[#6029d6]">COMP2521</InTextLink> - where you learn very specific particular things
       like binary search trees, graphs, etc and are tested on the depth of your understanding on those things only - as in COMP6080 you're tested on literally everything to do with web development
       and (because you can compare things visually) know exactly when your program is wrong. There's also a lot of different things in web development eg if you want to use a framework, or all the different built in browser APIs,
       or how to deploy a website, and so many approaches for a particular solution. If you're a perfectionist you might struggle with knowing that your work isn't finished and get stressed.
       compared with, for example, a Maths subject where you think everything is correct but it isn't. I think thats fair but on the other hand this course is so interesting that the difficulty pretty much
       goes away. HTML and CSS are pretty chill to understand once you have the basics of semantic HTML (eg buttons vs anchors) and some essential CSS things (eg flexbox and grids, or using a
-      framework like TailwindCSS which I particularly like). Vanilla Javascript is assumed from COMP1531 and the only 'new' things you are taught are asynchronous programming (restricted to using .then in
+      framework like TailwindCSS which I particularly like). Vanilla Javascript is assumed from <InTextLink link="/reviews/comp1531" color="text-[#6029d6]">COMP1531</InTextLink> and the only 'new' things you are taught are asynchronous programming (restricted to using .then in
       assignment 3 and then being allowed to use async/await in assignment 4), as well as differences between Javascript rendered on a browser compared with in a terminal and having access to a command line interface.
       Some key differences include learning about the existence of localStorage and window properties (eg innerHeight, hash locations). Overall, however, what you learn isn't insanely difficult, and in fact
-      I would consider this course as intellectually easier than something like COMP2521 - in fact, it might be similar to something like COMP1521 or COMP1531.
+      I would consider this course as intellectually easier than something like <InTextLink link="/reviews/comp2521" color="text-[#6029d6]">COMP2521</InTextLink> - in fact, it might be similar to something like <InTextLink link="/reviews/comp1521" color="text-[#6029d6]">COMP1521</InTextLink> or <InTextLink link="/reviews/comp1531" color="text-[#6029d6]">COMP1531</InTextLink>.
     </p>
     <br />
     <p>
-      {` `}
       You would think that the course would get more difficult with React but in my opinion it made it much easier just for being able to manipulte the DOM with JSX and TSX. I fucking hated having to physically writee
       createElement for everything in assignment 3 but was able to get through it simply because I was ignorant. React was fucking beautiful and clean in comparison, although understanding the point of useState and good
       design patterns from useEffect took a little bit of extra research. What I like about this course, however, is that if you do need further guidance it gives you enough knowledge about the current industry and the way
@@ -139,14 +139,14 @@ import ReviewPage from "../../layouts/ReviewPage.astro";
   <ReviewSection title="Utility">
     <p>
       Once again, this course is incredibly worth the money for the amount of resources and skills you learn ($1 164 or around $130 per week excluding midterm break). It is also incredibly useful and I hope I was able to convey that in other sections. It is absolutely criminal
-      that this course costs the same as the bastard course I did with it concurrently (COMP1521).
+      that this course costs the same as the bastard course I did with it concurrently (<InTextLink link="/reviews/comp1521" color="text-[#6029d6]">COMP1521</InTextLink>).
     </p>
     <br />
     <p>
       On a side note, I was reading some course reviews about COMP6080 and these critics of COMP6080 are so fucking insane its unreal. Some people complain that HTML and CSS and vanilla Javascript have too much focus in the first few weeks when its a fucking
       intro course to web development and they're pretty much the only things about web development that we know are going to be consistent. Some people also complain that they don't teach modern React frameworks like Next - but frameworks are fucking frameworks and this
       course is impartial and isn't supposed to shill out one over the other, especially since some are notorious for being backed by certain companies. I think the focus instead on CSS frameworks like Bootstrap (a tiny bit outdated) and TailwindCSS (incredibly relevant) was
-      a lot more essential to front end understanding. Some people have also criticised this course as not teaching anything new if you already knew frontend and those people are utter dumbasses its unreal. That's like complaining COMP1511 was too easy since you already knew C.
+      a lot more essential to front end understanding. Some people have also criticised this course as not teaching anything new if you already knew frontend and those people are utter dumbasses its unreal. That's like complaining <InTextLink link="/reviews/comp1511" color="text-[#6029d6]">COMP1511</InTextLink> was too easy since you already knew C.
       This is an elective bozo. Fuck the haters...
     </p>
   </ReviewSection>

@@ -1,4 +1,5 @@
 ---
+import InTextLink from "../../components/InTextLink.astro";
 import ReviewSection from "../../components/ReviewSection.astro";
 import ReviewPage from "../../layouts/ReviewPage.astro";
 
@@ -11,7 +12,7 @@ import ReviewPage from "../../layouts/ReviewPage.astro";
   thumbnailUrl="https://unsplash.com/photos/green-grass-on-water-8QxNb3Ovn20"
 >
   <ReviewSection title="Overview">
-    <p>Prerequisites: COMP1531</p>
+    <p>Prerequisites: <InTextLink link="/reviews/comp1511" color="text-[#158470]">COMP1511</InTextLink></p>
     <br />
     <p>
       This was phenomenal. Any course with no final exam is phenomenal (this course basically has one giant assignment split into three
@@ -39,8 +40,7 @@ import ReviewPage from "../../layouts/ReviewPage.astro";
     <br />
     <p>
       Honestly the hardest part of the course is implicitly learning things that you aren't actually explicitly tought eg dealing with function callbacks before
-      learning of what they actually are, or getting into the intricacies of asynchronous programming and closures without being formally taught (that's done in the elective
-      COMP6080!). However, everything is really doable and really makes you feel like you're learning something modern and fresh. The hardest part of the actual
+      learning of what they actually are, or getting into the intricacies of asynchronous programming and closures without being formally taught (that's done in <InTextLink link="/reviews/comp6080" color="text-[#158470]">the elective COMP6080!</InTextLink>). However, everything is really doable and really makes you feel like you're learning something modern and fresh. The hardest part of the actual
       syllabus content is learning about Typescript, but Typescript is beautiful.
     </p>
   </ReviewSection>
@@ -53,7 +53,7 @@ import ReviewPage from "../../layouts/ReviewPage.astro";
     </p>
     <br />
     <p>
-      I know for a fact that this is by far not the common experience. Most people loath COMP1531 because they have shitty group members who are not only bad programmers
+      I know for a fact that this is by far not the common experience. Most people loathe COMP1531 because they have shitty group members who are not only bad programmers
       but don't communicate and ditch shit at the last minute. Having someone you actually know and trust in your group makes a big difference on how enjoyable this is.
     </p>
   </ReviewSection>
@@ -74,7 +74,7 @@ import ReviewPage from "../../layouts/ReviewPage.astro";
   </ReviewSection>
   <ReviewSection title="Utility">
     <p>
-      This is by far the most useful course for ending your impostor syndrome and feeling like you can actually create things with your programs. Coming off of COMP1511, which felt
+      This is by far the most useful course for ending your impostor syndrome and feeling like you can actually create things with your programs. Coming off of <InTextLink link="/reviews/comp1511" color="text-[#158470]">COMP1511</InTextLink>, which felt
       initially like writing small shit programs in a very old language, this course gives you confidence and also a little bit of experience into how programming is done in the
       'real world' ie for applications that a fuckton of people use every day.
     </p>

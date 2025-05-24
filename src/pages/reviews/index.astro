@@ -14,8 +14,8 @@ interface Props {
   thumbnailUrl: string;
 }
 
-const primaryColor = `bg-indigo-50`;
-const secondaryColor = `bg-indigo-100`;
+const primaryColor = `bg-[#fcfcfc]`;
+const secondaryColor = `bg-indigo-50`;
 const reviews = await getCollection(`reviews`);
 
 interface Rating {
@@ -89,7 +89,7 @@ function getRatingColor(rating: `S` | `A` | `B` | `C` | `D` | `F`) {
       <hgroup class="md:px-0 sm:pb-12">
         <h1 id="reviews-title" class="font-playfair font-bold text-2xl sm:text-5xl my-3 p-3">UNSW Course Tier List</h1>
       </hgroup>
-      <section class=`flex flex-col gap-3 sm:gap-0 items-center font-manrope rounded-lg overflow-hidden sm:divide-y-[1px] sm:divide-slate-300 sm:border border-slate-300`>
+      <section class=`flex flex-col gap-3 sm:gap-0 items-center font-manrope rounded-lg overflow-hidden sm:divide-y-[1px] sm:divide-slate-300 sm:shadow-md`>
         {ratings.map((ra, i) => (
           <div class="grid grid-cols-12 justify-center w-full sm:p-0 rounded-lg overflow-hidden sm:rounded-none sm:overflow-auto  border-slate-300 border sm:border-none">
             <div class={`${getRatingColor(ra.grade)} px-3 col-span-12 sm:col-span-2 lg:col-span-1 sm:text-lg text-center flex flex-col items-center py-3`}>
@@ -98,9 +98,9 @@ function getRatingColor(rating: `S` | `A` | `B` | `C` | `D` | `F`) {
               </div>
               <span class="text-xs font-bv">{ra.description}</span>
             </div>
-            <ul class={`${i % 2 === 0 ? secondaryColor : `sm:bg-indigo-50 bg-indigo-100`} sm:text-md text-sm col-span-12 sm:col-span-10 lg:col-span-11 grid grid-cols-2 auto-rows-fr sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-x-3 sm:gap-y-6 list-none min-h-30 p-6`}>
+            <ul class={`${i % 2 === 0 ? secondaryColor : `sm:bg-[#fcfcfc] bg-indigo-50`} sm:text-md text-sm col-span-12 sm:col-span-10 lg:col-span-11 grid grid-cols-2 auto-rows-fr sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-x-3 sm:gap-y-6 list-none min-h-30 p-6`}>
               { reviews.filter(r => r.data.rating === ra.grade).toSorted((a, b) => a.data.id.localeCompare(b.data.id)).map(r => (
-                <li class="bg-[#fcfcfc] text-center flex flex-col min-h-15 rounded-lg hover:bg-black hover:text-white shadow-md">
+                <li class="bg-[#ffffff] text-center flex flex-col min-h-15 rounded-lg hover:bg-black hover:text-white shadow-md">
                   <a class="cursor-pointer hover:underline flex flex-col justify-center items-center p-3" href={`/reviews/${r.data.id.toLowerCase()}`} data-astro-prefetch>
                     <span class="font-bold">{r.data.id}</span>
                     <span class="font-playfair">{r.data.longTitle}</span>
