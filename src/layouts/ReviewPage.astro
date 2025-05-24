@@ -5,6 +5,7 @@ import { getEntry } from "astro:content";
 import Footer from "../components/Footer.astro";
 import { MobileNavbar } from "../components/MobileNavbar";
 import ReviewSection from "../components/ReviewSection.astro";
+import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 
 interface Props {
@@ -48,6 +49,7 @@ const { data }  = entry;
 				animation: 0.8s ease-in fadeInUp;
 			}
 		</style>
+		<ClientRouter />
 	</head>
 	<body>
 		<Navbar color={secondaryColor} secondaryColor={primaryColor.substring(4, primaryColor.length - 1)}/>
@@ -89,47 +91,61 @@ const { data }  = entry;
 		<Footer color={primaryColor} />
 		<script>
 			// Make paragraphs transition when first viewed
-			const o = new IntersectionObserver(entries => {
-				entries.forEach(e => {
-					if (e.isIntersecting) {
-						e.target.classList.toggle("animate-visible", true);
-					}
-				}, { threshold: 0.5 });
-			});
-			Array.from(document.getElementsByTagName("article")[0].children).forEach(e => {
-				o.observe(e);
-			});
+			const handler = () => {
+				const o = new IntersectionObserver(entries => {
+					entries.forEach(e => {
+						if (e.isIntersecting) {
+							e.target.classList.toggle("animate-visible", true);
+						}
+					}, { threshold: 0.5 });
+				});
+				Array.from(document.getElementsByTagName("article")[0].children).forEach(e => {
+					o.observe(e);
+				});
+			}
+			document.addEventListener("astro:page-load", handler);
+			// As children will no longer exist, remove event listener
+			document.addEventListener("astro:before-preparation", () => {
+				document.removeEventListener("astro:page-load", handler);
+			})
 		</script>
 		<script>
 			// Add functionality to back to top button
-			const button = document.querySelector("#back-to-top");
-			if (!button) {
-				throw new Error("Button not rendered");
-			}
-			button.addEventListener("click", () => {
-				document.body.scrollTop = 0;
-				document.documentElement.scrollTop = 0;
+			document.addEventListener("astro:page-load", () => {
+				const button = document.querySelector("#back-to-top");
+				if (button) {
+					button.addEventListener("click", () => {
+					document.body.scrollTop = 0;
+					document.documentElement.scrollTop = 0;
+				});
+				}
 			});
 		</script>
 		<script>
 			// Make bg colour of main same colour as entire body
-			const body = document.getElementsByTagName("body")[0];
-        	const main = document.getElementsByTagName("main")[0];
-			if (body && main) {
-				body.style.backgroundColor = window.getComputedStyle(main).backgroundColor;
-			}
+			document.addEventListener("astro:page-load", () => {
+				const body = document.getElementsByTagName("body")[0];
+				const main = document.getElementsByTagName("main")[0];
+				if (body && main) {
+					body.style.backgroundColor = window.getComputedStyle(main).backgroundColor;
+				}
+			});
 		</script>
 		<script>
 			// Transition main and nav when scrolled down
-			const main = document.getElementsByTagName("main")[0];
-			const nav = document.getElementsByTagName("nav")[0];
-			const o = new IntersectionObserver(entries => {
-				entries.forEach(e => {
-					main.classList.toggle("transition", !e.isIntersecting);
-					nav.classList.toggle("transition", !e.isIntersecting)
-				});
+			document.addEventListener("astro:page-load", () => {
+				const main = document.getElementsByTagName("main")[0];
+				const nav = document.getElementById("big-nav") as HTMLElement;
+				if (main && nav) {
+					const o = new IntersectionObserver(entries => {
+						entries.forEach(e => {
+							main.classList.toggle("transition", !e.isIntersecting);
+							nav.classList.toggle("transition", !e.isIntersecting)
+						});
+					});
+					o.observe(document.getElementsByTagName("hgroup")[0]);
+				}
 			});
-			o.observe(document.getElementsByTagName("hgroup")[0]);
 		</script>
 	</body>
 </html>

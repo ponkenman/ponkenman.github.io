@@ -4,6 +4,7 @@ import Footer from "../../components/Footer.astro";
 import { MobileNavbar } from "../../components/MobileNavbar";
 import "../../styles/global.css";
 import { getCollection } from "astro:content";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
 	key: string;
@@ -79,6 +80,7 @@ function getRatingColor(rating: "S"|"A"|"B"|"C"|"D"|"F") {
 				animation: 0.5s ease-in fadeInUp;
 			}
 		</style>
+		<ClientRouter />
 	</head>
 	<body>
 		<Navbar color={secondaryColor} secondaryColor={`oklch(93% 0.034 272.788)`}/>
@@ -113,33 +115,45 @@ function getRatingColor(rating: "S"|"A"|"B"|"C"|"D"|"F") {
 		<Footer color={secondaryColor} />
 		<script>
 			// Transition nav when scrolled down
-			const nav = document.getElementsByTagName("nav")[0];
-			const o = new IntersectionObserver(entries => {
-				entries.forEach(e => {
-					nav.classList.toggle("transition", !e.isIntersecting)
+			const handler = () => {
+				const nav = document.getElementById("big-nav") as HTMLElement;
+				const o = new IntersectionObserver(entries => {
+					entries.forEach(e => {
+						nav.classList.toggle("transition", !e.isIntersecting);
+					});
 				});
+				o.observe(document.getElementById("empty-div-top") as Element);	
+			}
+			document.addEventListener("astro:page-load", handler);
+			// Before transition, empty-div-top will no longer exist, so remove
+			document.addEventListener("astro:before-preparation", () => {
+				document.removeEventListener("astro:page-load", handler);
 			});
-			o.observe(document.getElementById("empty-div-top") as Element);
 		</script>
 		<script>
 			// Make bg colour of main same colour as entire body
-			const body = document.getElementsByTagName("body")[0];
-        	const main = document.getElementsByTagName("main")[0];
-			if (body && main) {
-				body.style.backgroundColor = window.getComputedStyle(main).backgroundColor;
-			}
+			document.addEventListener("astro:page-load", () => {
+				const body = document.getElementsByTagName("body")[0];
+				const main = document.getElementsByTagName("main")[0];
+				if (body && main) {
+					body.style.backgroundColor = window.getComputedStyle(main).backgroundColor;
+				}	
+			});
 		</script>
 		<script>
 			// Make cards transition when first viewed
+			document.addEventListener("astro:page-load", () => {
 			const o = new IntersectionObserver(entries => {
 				entries.forEach(e => {
 					if (e.isIntersecting) {
 						e.target.classList.toggle("animate-visible", true);
 					}
 				}, { old: 0.25 });
+
 			});
 			Array.from(document.getElementsByTagName("li")).forEach(e => {
 				o.observe(e);
+			});	
 			});
 		</script>
 	</body>
