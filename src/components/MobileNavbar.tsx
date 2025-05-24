@@ -18,30 +18,30 @@ export function MobileNavbar({ color }: { color: string}) {
 
     // Prevent scrolling if visible
     useEffect(() => {
-        let timer: ReturnType<typeof setTimeout>;
         if (mobileNavVisible) {
             document.body.style.top = `-${window.scrollY}px`;
             document.body.style.position = "fixed";
+            document.body.style.overflow = "hidden";
         } else {
-            timer = setTimeout(() => {
-                            const top = document.body.style.top;
+            document.body.style.overflow = "auto";
+            const top = document.body.style.top;
             const topString = top.substring(top[0] === '0' ? 0 : 1, top.length - 2);
             const scrollY = parseInt(topString) - window.innerHeight;
             if (!isNaN(scrollY)) {
-                document.body.style.position = 'unset';
                 document.body.style.top = '';
-                window.scrollTo(0, parseInt(`${scrollY}` || '0'));
+                document.body.style.position = "";
+                const amount = parseInt(`${scrollY}` || '0');
+                window.scrollTo(0, amount); 
             }
-            }, 500);
+            
         }
-        return () => clearTimeout(timer);
     }, [mobileNavVisible]);
 
     return (<>
     { mobileNavVisible
     ? <>
         <nav className="flex h-screen z-1">
-            <div style={{animation: "0.5s ease-out fadeInUpNav"}} className={`${color} fadeIn fixed md:hidden m-auto z-1 inset-0 overscroll-none flex flex-col items-center justify-center gap-5`}>
+            <div style={{animation: "0.5s ease-out fadeIn"}} className={`${color} fadeIn fixed md:hidden m-auto z-1 inset-0 overscroll-none flex flex-col items-center justify-center gap-5`}>
                 <a style={{animation: "0.5s ease-out fadeInUpNav"}} className="cursor-pointer font-bold hover:underline text-xl">HOME</a>
                 <a style={{animation: "0.5s ease-out fadeInUpNav"}} className="cursor-pointer font-bold hover:underline text-xl">FUCK</a>
                 <a style={{animation: "0.5s ease-out fadeInUpNav"}} className="cursor-pointer font-bold hover:underline text-xl">THESE</a>
