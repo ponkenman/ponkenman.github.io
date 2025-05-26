@@ -130,7 +130,7 @@ function getRatingColor(rating: `S` | `A` | `B` | `C` | `D` | `F`) {
       document.addEventListener("astro:before-preparation", () => {
         document.removeEventListener("astro:page-load", handler);
       });
-	  </script>
+    </script>
     <script>
 			// Make bg colour of main same colour as entire body
 			document.addEventListener("astro:page-load", () => {
@@ -140,7 +140,7 @@ function getRatingColor(rating: `S` | `A` | `B` | `C` | `D` | `F`) {
 					body.style.backgroundColor = window.getComputedStyle(main).backgroundColor;
 				}	
 			});
-	  </script>
+    </script>
     <script>
 			// Make cards transition when first viewed
 			document.addEventListener("astro:page-load", () => {
@@ -156,6 +156,6 @@ function getRatingColor(rating: `S` | `A` | `B` | `C` | `D` | `F`) {
 				o.observe(e);
 			});	
 			});
-	  </script>
+    </script>
   </body>
 </html>

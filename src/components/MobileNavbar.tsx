@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 export function MobileNavbar({ color }: { color: string }) {
   const [mobileNavVisible, setMobileNavVisible] = useState(false);
@@ -13,13 +13,15 @@ export function MobileNavbar({ color }: { color: string }) {
     };
 
     window.addEventListener(`resize`, handler);
-    return () => { window.removeEventListener(`resize`, handler); };
+    return () => {
+      window.removeEventListener(`resize`, handler);
+    };
   }, []);
 
   // Prevent scrolling if visible
   useEffect(() => {
     if (mobileNavVisible) {
-      document.body.style.top = `-${window.scrollY}px`;
+      document.body.style.top = `-${String(window.scrollY)}px`;
       document.body.style.position = `fixed`;
       document.body.style.overflow = `hidden`;
     } else {

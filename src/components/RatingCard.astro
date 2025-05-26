@@ -5,7 +5,7 @@ interface Props {
 }
 const { title, value } = Astro.props;
 
-function getColor(value: string | number) {
+function getColor(value: string | number): string {
   switch (value) {
     case 0: {
       return `text-slate-500`;
@@ -52,6 +52,6 @@ function getColor(value: string | number) {
 const color = getColor(value);
 ---
 <div class="bg-[#fcfcfc] p-4 rounded-xl text-center font-manrope shadow-lg max-w-200 border border-gray-200">
-  <p class={`text-3xl font-bold ${color}`}>{typeof value === `number` ? `${value}/5` : value}</p>
+  <p class={`text-3xl font-bold ${color}`}>{typeof value === `number` ? `${value.toString()}/5` : value }</p>
   <p class="">{title}</p>
 </div>
