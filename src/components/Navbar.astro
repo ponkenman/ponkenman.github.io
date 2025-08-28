@@ -6,6 +6,26 @@ interface Props {
 const { color, secondaryColor } = Astro.props;
 ---
 <style define:vars={{ secondaryColor }}>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     nav.transition {
         height: 32px;
         background-color: var(--secondaryColor);
@@ -15,6 +35,26 @@ const { color, secondaryColor } = Astro.props;
     nav:not(.transition) {
         transition: 0.8s all ease-out;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </style>
 <nav id="big-nav" class={`${color} opacity-95 px-7 font-manrope justify-between gap-5 hidden md:flex fixed inset-x-0 top-0 h-12 z-20 border-b border-slate-400 items-center shadow-md`}>
   <a class="cursor-pointer font-bold hover:underline">HOME</a>

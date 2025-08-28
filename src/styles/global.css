@@ -37,25 +37,21 @@
   --font-bv: "Baskerville", serif;
 }
 
-@keyframes fadeInUp {
+@keyframes downIn {
     0% {
-        transform: translateY(-10px);
-        opacity: 0%;
+        transform: translateY(-1rem);
     }
     100% {
         transform: translateY(0%);
-        opacity: 100%;
     }
 }
 
-@keyframes fadeInUpNav {
+@keyframes upOut {
     0% {
-        transform: translateY(-10px);
-        opacity: 0%;
+        transform: translateY(0%);
     }
     100% {
-        transform: translateY(0%);
-        opacity: 100%;
+        transform: translateY(-1rem);
     }
 }
 
@@ -66,6 +62,19 @@
     100% {
         opacity: 100%;
     }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 100%;
+    }
+    100% {
+        opacity: 0%;
+    }
+}
+
+@view-transition {
+  navigation: auto;
 }
 
 /*Class representing links to other pages on same website*/

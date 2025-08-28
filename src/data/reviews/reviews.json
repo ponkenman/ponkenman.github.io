@@ -166,6 +166,53 @@
         "rating": "D",
         "tags": ["LAWS courses", "24T1"],
         "utility": 3
+    },
+    {
+        "dateReviewed": "2025-08-28",
+        "difficulty": 2,
+        "delivery": 3,
+        "effort": 3,
+        "enjoyment": 4,
+        "id": "COMP2511",
+        "longTitle": "Object-Oriented Design & Programming",
+        "rating": "A",
+        "tags": ["COMP courses", "25T2"],
+        "utility": 5
+    },
+    {
+        "dateReviewed": "2025-08-28",
+        "difficulty": 5,
+        "delivery": 3,
+        "effort": 4,
+        "enjoyment": 5,
+        "id": "COMP3891",
+        "longTitle": "Extended Operating Systems",
+        "rating": "S",
+        "tags": ["COMP courses", "25T2"],
+        "utility": 5
+    },
+    {
+        "dateReviewed": "2025-08-28",
+        "difficulty": 2,
+        "delivery": 4,
+        "effort": 1,
+        "enjoyment": 4,
+        "id": "LAWS1022",
+        "longTitle": "Criminal Laws",
+        "rating": "S",
+        "tags": ["LAWS courses", "25T2"],
+        "utility": 5
+    },
+    {
+        "dateReviewed": "2025-08-28",
+        "difficulty": 1,
+        "delivery": 4,
+        "effort": 1,
+        "enjoyment": 3,
+        "id": "LAWS1230",
+        "longTitle": "Lawyers, Ethics and Justice",
+        "rating": "A",
+        "tags": ["LAWS courses", "25T2"],
+        "utility": 4
     }
-
 ]

@@ -1,0 +1,11 @@
+.course-btn {
+    transition: all 0.25s ease-in-out;
+}
+
+.course-btn a {
+    transition: opacity 0.25s ease-in-out;
+}
+
+.review-card {
+    transition: all 0.5s ease-in-out;
+}
