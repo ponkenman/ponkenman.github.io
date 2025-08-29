@@ -30,7 +30,6 @@ export default tseslint.config(
     rules: {
       '@stylistic/yield-star-spacing': [`error`, `after`],
       '@stylistic/quotes': [`error`, `backtick`],
-
     },
   },
 );

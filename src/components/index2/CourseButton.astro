@@ -17,70 +17,19 @@ const { review, colours } = Astro.props;
 	<div class:list={["font-bold text-left"]}>
 		{review.id}
 	</div>
-	<div class:list={["relative", "col-span-2 flex flex-row justify-between"]}>
-	<div class:list={["text-left mr-1"]}>
-			{review.longTitle}
-	</div>
-	<a class:list={["block opacity-0 hover:underline", "group-hover:opacity-100"]} href={`/reviews/${review.id.toLowerCase()}`} title={`${review.id} review`} data-astro-prefetch>→</a>
+	<div class:list={["col-span-2 flex flex-row justify-between"]}>
+		<div class:list={["text-left mr-1 font-bv text-lg"]}>
+				{review.longTitle}
+		</div>
+	<a class:list={["block opacity-0 hover:underline", "group-hover:opacity-100", "btn-arrow"]} href={`/reviews/${review.id.toLowerCase()}`} title={`${review.id} review`} data-astro-prefetch>→</a>
 	</div>
 		</button>
 	</colour-button>
 </li>
 <script>
-	import type { ReviewData } from "../../content.config";
+	import { openCard } from "./card";
 	const courseButtons = document.querySelectorAll(".course-btn");
-	courseButtons.forEach(b => b.addEventListener("click", () => {
-		const container = b.closest(".tier-container") as HTMLElement;
-
-		const card = container.querySelector(".review-card") as HTMLElement;
-		if (card.style.display == "none") {
-			card.style.display = "flex";
-			card.style.animation = "0.3s ease-in fadeIn, 0.3s ease-in downIn";
-
-			card.onanimationend = () => {
-				card.style.animation = "";
-				card.dataset.visible = "true";
-			};
-		}
-		const data = JSON.parse((b as HTMLElement).dataset.review as string) as ReviewData;
-
-		const title = card.querySelector(".review-longtitle")! as HTMLElement;
-		title.textContent = data.longTitle;
-
-		const id = card.querySelector(".review-course-id") as HTMLElement;
-		id.textContent = data.id;
-
-		const tagbar = card.querySelector("review-tagbar") as HTMLElement;
-		tagbar.setAttribute("tags", JSON.stringify(data.tags));
-
-		const categories = card.querySelectorAll("rating-category");
-		categories.forEach(c => c.setAttribute("rating", data[c.getAttribute('key') as keyof ReviewData] as string));
-
-		const link = card.querySelector(".review-link") as HTMLAnchorElement;
-		link.href = `/reviews/${data.id.toLowerCase()}`;
-		link.title=`${data.id} review`;
-
-		if (card.dataset.visible == "true") {
-			/*
-			card.querySelectorAll(".review-dynamic")!.forEach(e => {
-				let elem = e as HTMLElement;
-				elem.style.animation = "0.5s ease-in-out fadeIn";
-				elem.onanimationend = () => {
-					elem.style.animation = "";
-				}
-			});
-			*/
-		}
-
-		const cb = b.closest("colour-button") as HTMLElement;
-		cb.setAttribute("active", "true");
-		(container.querySelectorAll("colour-button") as NodeListOf<HTMLElement>).forEach(c => {
-			if (c !== cb) {
-				c.setAttribute("active", "false");
-			}
-		});
-
-	}));
+	courseButtons.forEach(b => b.addEventListener("click", () => openCard(b)));
 </script>
 <script>
 import type { ElemColour } from "../../scripts/ElemColour";
@@ -94,9 +43,11 @@ import type { ElemColour } from "../../scripts/ElemColour";
 			if (newValue == "true") {
 				btn.classList.add(colours.primary.bg);
 				btn.classList.add(colours.secondary.text);
+				(btn.querySelector(".btn-arrow") as HTMLElement).style.opacity = "100";
 			} else {
 				btn.classList.remove(colours.primary.bg);
 				btn.classList.remove(colours.secondary.text);
+				(btn.querySelector(".btn-arrow") as HTMLElement).style = "";
 			}
 		}
 	}

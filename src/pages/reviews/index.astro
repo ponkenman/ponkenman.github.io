@@ -1,14 +1,9 @@
 ---
 import "../../styles/global.css";
 import "../../styles/tierlist.css";
-import { getCollection } from "astro:content";
 import { dark, white } from "../../components/index2/colours";
 import TierContainer from "../../components/index2/TierContainer.astro";
-
-type Rating = 'S' | 'A' | 'B' | 'C' | 'D' | 'F';
-
-const reviews = await getCollection(`reviews`);
-const rateToList = (rating: Rating) => reviews.filter(r => r.data.rating === rating).toSorted((a, b) => a.data.id.localeCompare(b.data.id));
+import ModalBackdrop from "../../components/modal/ModalBackdrop.astro";
 
 ---
 
@@ -22,6 +17,7 @@ const rateToList = (rating: Rating) => reviews.filter(r => r.data.rating === rat
 		<title>Website</title>
   </head>
   <body class:list={white.bg}>
+		<ModalBackdrop />
     <main>
 			<TierContainer 
 				title="S Tier (kino)"
@@ -32,35 +28,35 @@ const rateToList = (rating: Rating) => reviews.filter(r => r.data.rating === rat
 			/>
 			<TierContainer 
 				title="A Tier (interesting)"
-				description="These courses are still great, even if they weren't my favourite courses to take. What separates these courses from S tier is that there is usually something I felt was wrong with the syllabus or assessment structure (or maybe I'm just salty)."
+				description="These courses are still great, even if they weren't my favourite courses to take. What separates these courses from S tier is that there is usually some small gripe or imperfection, usually with the syllabus or assessment structure (or maybe I'm just salty)."
 				rating='A'
 				containerColours={[dark.bg, white.text]}
 				buttonColours={{ primary: white, secondary: dark}}
 			/>
 			<TierContainer 
 				title="B Tier (ok)"
-				description="These courses are all decent but have substantial room for improvement. Although they are worthwhile, they also definitely could have been done better. Their main issues usually involve some inherent or fundamental problem with the way the course is taught/structured."
+				description="These courses are all decent but have substantial room for improvement. Although they are worthwhile, they also definitely could have been done better. Their main issues usually involve some inherent or fundamental problem with the way the course is taught/structured. So far there's only one course... that's pretty good!"
 				rating='B'
 				containerColours={[white.bg, dark.text]}
 				buttonColours={{ primary: dark, secondary: white}}
 			/>
 			<TierContainer 
 				title="C Tier (boring)"
-				description="These courses are a bit miserable and feel like a waste of time. Unfortunately they're also usually introductory or mandatory and so you don't really have an option."
+				description="These courses are a bit miserable and feel like a waste of time. Unfortunately they're also usually introductory or mandatory and so you don't really have an option. Only one course belongs here... so far..."
 				rating='C'
 				containerColours={[dark.bg, white.text]}
 				buttonColours={{ primary: white, secondary: dark}}
 			/>
 			<TierContainer 
 				title="D Tier (dogshit)"
-				description="These courses are problematic."
+				description="These courses (ie this course as there's only one) are boring, unmotivating, tedious, and a general waste of time. You will stare at the clock and you will feel like you are waiting for something that never arrives."
 				rating='D'
 				containerColours={[white.bg, dark.text]}
 				buttonColours={{ primary: dark, secondary: white}}
 			/>
 			<TierContainer 
 				title="F Tier (affront to higher education)"
-				description="These courses make you question why anyone would voluntary pay for university."
+				description="These courses make you question why anyone would pay for university voluntarily. It's honestly embarrassing that these courses (ie this course) even exist(s). It is a complete waste of time and you should consider just skipping everything."
 				rating='F'
 				containerColours={[dark.bg, white.text]}
 				buttonColours={{ primary: white, secondary: dark}}
