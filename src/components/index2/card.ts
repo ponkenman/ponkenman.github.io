@@ -1,4 +1,5 @@
 import type { ReviewData } from "../../content.config";
+import { closeModal, openModal } from "../modal/modal";
 
 export const openCard = (b: Element) => {
   const container = b.closest(".tier-container") as HTMLElement;
@@ -16,9 +17,7 @@ export const openCard = (b: Element) => {
       card.style.animation = "0.3s ease-in fadeIn, 0.3s ease-in-out leftIn";
       document.body.style = "overflow: hidden;";
 
-      const backdrop = document.querySelector("#modal-backdrop") as HTMLElement;
-      backdrop.style.display = "block";
-      backdrop.addEventListener("click", () => closeCard(b));
+      openModal(b);
     }
 
     card.onanimationend = () => {
@@ -70,9 +69,7 @@ export const closeCard = (b: Element) => {
   const container = b.closest(".tier-container") as HTMLElement;
   const card = container.querySelector(".review-card") as HTMLElement;
 
-  const backdrop = document.querySelector("#modal-backdrop") as HTMLElement;
-  backdrop.style = "display: hidden;";
-  // backdrop.removeEventListener("click", () => closeCard(b));
+  closeModal();
 
   // Animations
   if (window.matchMedia("(width >= 64rem)").matches) {

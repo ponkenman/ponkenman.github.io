@@ -13,3 +13,21 @@
 .tier-container {
     transition: all 0.5s ease-in-out;
 }
+
+@keyframes fadeInBackdrop {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 50%;
+    }
+}
+
+@keyframes fadeOutBackdrop {
+    0% {
+        opacity: 50%;
+    }
+    100% {
+        opacity: 0%;
+    }
+}
