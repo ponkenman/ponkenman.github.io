@@ -5,7 +5,6 @@ import { getEntry } from "astro:content";
 import Footer from "../components/Footer.astro";
 import { MobileNavbar } from "../components/MobileNavbar";
 import ReviewSection from "../components/ReviewSection.astro";
-import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 
 interface Props {
@@ -28,7 +27,7 @@ const { data }  = entry;
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 		<meta name="generator" content={Astro.generator} />
 		<title>W</title>
 		<style define:vars={{ secondaryColor: secondaryColor.substring(4, secondaryColor.length - 1) }}>
