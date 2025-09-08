@@ -1,0 +1,9 @@
+---
+interface Props {
+  course: string;
+}
+
+const { course } = Astro.props;
+const BASE_URL = `/reviews/`;
+---
+<a class:list={["course-link"]} href={BASE_URL + course.toLocaleLowerCase()}>{course.toLocaleUpperCase()}</a>

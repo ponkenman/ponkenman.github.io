@@ -1,0 +1,96 @@
+---
+title: 'COMP3891 Course Review'
+tags: ["Computer Science", "25T2", "S Tier"]
+dateReviewed: 2025-09-02
+difficulty: 5
+delivery: 3
+effort: 4
+enjoyment: 5
+id: "COMP3891"
+longTitle: "Extended Operating Systems"
+rating: 'S'
+utility: 5
+---
+import StarBar from "../../components/StarBar.astro";
+import ReviewSection from "../../components/ReviewSection.astro";
+import CourseLink from "../../components/CourseLink.astro";
+
+<ReviewSection>
+
+### Overview
+
+Prerequisites: (Relevantly) <CourseLink course="COMP1521" /> and <CourseLink course="COMP2521" />
+
+
+This course is fucking amazing and the biggest step up from <CourseLink course="COMP1521" />. Taking this course made having to sit through that gaping shithole of specifications worth it because you actually get to understand the purpose of having these specifications in the first place. My friend says that this course wasn't that useful and he is an idiot. It is incredible to finally understand what an actual operating system is (I thought, before taking this course, that it was just a random flavour of software that came with the computer you wanted). The complexity in having to manage shared resources and security between user processes while maintaining a consistent and clear layer of abstraction between the user level and hardware is incredibly interesting and you awake in a deep state of lucidity, mind now fully formed and able to comprehend how a computer actually interacts with software and hardware. Before this course I honestly had no idea how a Javascript fetch command worked, or how files were even written - how did the terminal or shell or other program instance know how to receive data from the network or access my file system? What the fuck did the columns besides the name and percentage ones in my activity monitor even mean? How do you not get confused between a thread and process (something I, ashamed to stay, didn't still quite fully grasp after <CourseLink course="COMP1521" /> in part because it was taught at the very end and in part because I wasn't paying attention). 
+
+The beauty of this course, like all the other courses I rate highly, is that you genuinely feel like you gain an in depth and intuitive understanding of how computers and programs work, in a way that doesn't feel too abstract or fake. So many topics are explored - concurrency and synchronisation, processes and threads, file systems, memory management, scheduling, I/O, multiprocessing. If you take the advanced version like I did, you also are introduced to very interesting topics like general operating systems designs (now I know what a microkernel is), virtualisation in different ways like virtual machines and containers (now I know what docker does), and different data structures that are alternatives to the prevailing ones. The entire course is taught with detail and patience with an emphatic undercurrent of the operating system serving a purpose and every design decision having pros and cons. I found this course incredibly intellectually stimulating because every topic has a greater purpose and connects with every other topic. It is also incredibly enjoyable to implement designs and data structures using a teaching operating system (OS161) to realise that this is actually how operating systems work. Learning is an amazing feeling.
+
+This course is comprised of 50% assignments and a 50% final exam. There are no labs. While there are tutorials, they are all completely voluntary, and if you take the advanced version its replaced by the extended lecture series. In the iteration of the course I took there are three assignments - a simple one about playing with concurrency/synchronisation primitives (conditional variables, semaphores, locks etc) and familiarising yourself with the syscall interface (API); the second one being a definite step up in difficulty about implementing file system calls and associated data structures while reflecting on how a kernel needs to defensively program against user input; and the third about implementing the data structures for virtual memory management. 
+
+If you take the extended version of this course like I did each, you're also required to attempt certain advanced parts of each assignment: assignment 1 was about reverse-engineering a syscall, assignment 2 had us implement very complicated process management data structures and syscalls (eg getpid, waitpid, fork, execv - I now finally understanding what those functions actually did in <CourseLink course="COMP1521" />), and assignment 3 had us do more complicated memory management stuff (implmenting copy-on-write semantics using READONLY faults, extending the heap using sbrk, memory map syscalls, and demand paging). I was able to complete everything to a pretty good standard except for demand paging (unfortunately I started the third assignment like 5 days in advance and a random due date extension for everyone made me submit just in time, holyyyy).
+
+The final exam isn't too bad as well. It was done using Inspera and we were allowed to bring in stapled notes of up to 20 pages (strangely making it feel like a law exam if anything). The entire course slides, including the advanced parts, were also available as hyperlinks and popups. There are 40 multiple choice questions (LOL) some of which were easy pickings (oh geez, I wonder what the answer could be for the reason why a FAT file system is called FAT: is it the moderately serious answer about it being named after a data structure or the three joke answers about it being able to handle fat or big files?), and around two or three near the end involving advanced content. I must admit I didn't 100% understand everything in the lectures, but just mucking around and understanding how OS161 works when doing assignments, as well as being able to bring in notes and read the slides made it really stress-free.
+
+
+</ReviewSection>
+
+<ReviewSection>
+
+### Difficulty
+
+<StarBar total={5} filled={frontmatter.difficulty} />
+
+Honestly the most daunting part of this course was learning how to set up the os161 toolchain to work. I use an M3 MacBook Pro and so none of the provided setups worked except for the docker one (which thankfully was incredibly easy to use). After getting set up, the first assignment took a lot of getting used to in terms of finding your way around OS161 and looking at all the different files. You definitely need a good IDE to poke around and try and make sense of everything (I use VS Code). This might have been the most relatively difficult, to be honest, because of the sheer difficulty in trying to get accustomed to a codebase without fully understanding how some parts work. However the resources are very helpful and once you figure out what files to actually change it becomes relatively chill.
+
+The second and third assignments could both be done with a partner but unfortunately I did them myself after my partner turned out to be secretly doing the course but was being enslaved overseas and so couldn't help much (if you know you know). The workload for both wasn't too bad, especially if you just plan on doing the base assignment versions, once you figure out what to actually do. Half the work is actually learning about what to change and what to do and what is provided for you and what isn't. It feels a bit like boxing with shadows at first but once you get things working it is crazy. Its really recommended that you actually understand the content before you jump in otherwise it gets crazy. The assignments are also really intellectually stimulating - I still think about my crazy mmap implementation and potentially how to implement demand paging even if I didn't get to complete it.
+
+The final exam is nothing to worry about if you bring in some notes. You can also do the bum method I did and print out every single tutorial and sample exam question, sorted by topic, with their answers (note: it was actually only like 10% shared content sadly). :P
+
+Overall, although I didn't seem to say it, the course is actually quite difficult. It wasn't really that 'hard' for me, but judging difficulty in terms of how much you need to understand a concept to do well, this course requires a very high level of consistently applying the correct ideas in order to do well. You really need to understand what is specifically going on to actually make any progress in the assignments. Therefore, unlike some other courses where you could basically get away with stuff while still not fundamentally understanding what is going on (part of the problem with <CourseLink course="COMP1521" /> where I could do random file calls or process calls without not understanding stuff and still be fine), this course could be definitely challenging for some people. Let's just say it wasn't for me though... heh... It should also be pretty reasonable to expect full marks for the assignments, especially if you attempt the advanced components which give you bonus marks.
+
+
+</ReviewSection>
+
+<ReviewSection>
+
+### Enjoyment
+
+<StarBar total={5} filled={frontmatter.enjoyment} />
+
+It might seem weird for the word enjoyment to sit next to something as seemingly dry as operating systems (particularly when you get super low level about the difficulties of synchronising different CPU caches without overcrowding the bus, or how file system table data structures work, or how paging and thrashing works), but this course really is interesting once you see the constant struggle for having to share resources fairly while maintaining security. You learn to take shortcuts do things in clever ways (eg copy-on-write semantics for virtual pages really opened my eyes, or deciding how to make a forked thread begin in a new function). And those shortcuts actually further your understanding on why things were done. All the assignments are incredibly intellectually stimulating, which makes navigating through admittedly detail averse and terse slides worth it. Although I never really went out of my way to talk to people there is also a very cool social aspect to this course through the very helpful (although sometimes getting on my nerves) forum community, especially the lecturer who camped the forum to give consistently helpful answers.
+
+In all honesty, the most boring part of this course is probably the first few weeks when you're scratching your head trying to figure out where to start. It seems so difficult and obfuscated. The first hurdle always seems like the biggest, but once you get running inertia will carry you to the end.
+
+</ReviewSection>
+
+<ReviewSection>
+
+### Effort
+
+<StarBar total={5} filled={frontmatter.effort} />
+
+There are no labs and you can pretty much watch the lectures at you're own pace or when they're immediately relevant, which makes this quite a light course except for the leadup to assignments. I would estimate that it took around 1-2 days for assignment 1, and 4-5 days to complete the base and advanced versions of assignment 2 and 3. Honestly though, the amount of lines of code you write is quite little - you just need to make yourself sure that your code is correct, which could be the difficult part. I overloaded this term however and find it quite easy to manage the workload of this course except for around week 10ish when the third assignment came around while my <CourseLink course="COMP2511" /> assignment was due. 
+
+</ReviewSection>
+
+<ReviewSection>
+
+### Delivery
+
+<StarBar total={5} filled={frontmatter.delivery} />
+
+This course's teaching staff is top tier and make it incredibly easy to learn the content. Without naming the two lecturers (one teaching the general course and one only doing the advanced lectures), both were very engaging and passionate about the content, and were also very helpful in explaining the content. The lecturer's sheer dedication on the forum was also insane and honestly more than all the main non-elective courses. That dedication is quite admirable, especially where the content is so fundamentally difficult. Part of what made this course good, however, was how stimulating the assignments were. It is no exaggeration that this is the most fun assignment I've ever done in computer science ever (so far).
+
+</ReviewSection>
+
+<ReviewSection>
+
+### Utility
+
+<StarBar total={5} filled={frontmatter.utility} />
+
+I think the fact that its operating systems speaks for itself. Now you know how memory caching works, how user programs mimic concurrency and performs hardware operations eg read/writes or networking, what the words 'instruction set architecture' and 'application binary interface' mean... honestly the amount of both depth and breadth make this course insane to think about. Even if I forget all of this because I'm not going to specialise in operating systems or anything, all this information being present in my brain right now just feels insane. A very useful course!
+
+</ReviewSection>
+

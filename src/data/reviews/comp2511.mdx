@@ -1,0 +1,85 @@
+---
+title: 'COMP2511 Course Review'
+tags: ["Computer Science", "25T2", "A Tier"]
+dateReviewed: 2025-09-03
+difficulty: 2
+delivery: 3
+effort: 3
+enjoyment: 4
+id: "COMP2511"
+longTitle: "Object-Oriented Design and Programming"
+rating: 'A'
+utility: 5
+---
+import StarBar from "../../components/StarBar.astro";
+import ReviewSection from "../../components/ReviewSection.astro";
+import CourseLink from "../../components/CourseLink.astro";
+
+<ReviewSection>
+
+### Overview
+
+Prerequisites: <CourseLink course="COMP1531" /> and <CourseLink course="COMP2521" />
+
+This course is very interesting, at once being an introduction to programming in Java (including streams, interfaces, inheritance and generics), an exploration of programming using an object-oriented approach (ie refactoring code to be encapsulated to be interactions between classes and their methods, and to address certain 'code smells' eg excess duplication) and several key design patterns for modelling interactions between different systems as a program, followed by an exploration of how similar ideas of abstraction and encapsulation pervade modern software architecture design patterns eg monoliths, layered architecture, microservices, event driven architectures, serverless, etc. While earlier renditions of this course were 100% focused on pure programming, this course for the first time significantly revamped content in the second half of the term. I think this was an overall net positive change although they way it was examined (through just drawing diagrams) was a bit boring and tedious (making it feel like one of those 'fake' degrees). This might also be reflected in the course changing its name in 2026 to Software Design and Architecture, according to the handbook (although it used its deadname when I took it).
+
+This course follows the standard model of mainstream course assessment, with two assignments and weekly labs together worth 50%, and a final exam worth 50%. The labs were quite straightforward and just involved applying whatever was learnt in last week's lectures, but you could easily do them two weeks before they would due and were overall quite easy. The first assignment wasn't too bad and was actually quite interesting to first get stuck into modelling a system using an object-oriented paradigm, although they can be a bit nitpicky with having to create a UML diagram for the system you create (I lost marks for not writing the constructor...). The second assignment had to be done in pairs and involved first refactoring a dungeon video game program before adding new features, and then in the second part designing a software system at a high-level (not actually programming/implementing it) which tried to incorporate features of different architectures where relevant, as well as drawing sequence diagrams to show how users could interact with the system to meet their 'stories'. The final exam, having access to the entire lecture slides as well as resources on how to create sequence diagrams using Mermaid, was overall quite chill (being split into multiple choice, short answer responses, as some brief programming/diagram creation).
+
+This course definitely achieves its goal of making you think about how software both at the individual program/file executable to the overall system architecture can be designed to promote future maintainability and clarity. It is tied together quite well by the idea of providing abstractions that on their face may seem unnecessary but turn to make a software system more flexible and 'clean' for want of a better word. My only real qualms with it was that my partner was lowkey a dropkick and so there was added stress micromanaging them (although the way pairs are allocated - you put the expected grade you want and your level of effort - does filter the trauma somewhat), and that I felt there were too many drawings at the expense of actual computer science (sometimes it felt lowkey like art class). But I overall agree with the course's philosophy on how to design 'robust' (honestly what this course teaches you is how to string buzzwords together as well) systems. It is a great course and far beyond any kind of traumatic experience I heard it was going to be from students who did this course previously. It is also quite intellectually stimulating to refactor code using design patterns even if they could be a bit nitpicky with the marking (you could've refactored the entire game engine! Why didn't you do that... expecting us to is crazy, by the way).
+
+</ReviewSection>
+
+<ReviewSection>
+
+### Difficulty
+
+<StarBar total={5} filled={frontmatter.difficulty} />
+
+This course is not that difficult at all. It is actually one of the easiest COMP courses I've taken so far, way easier than <CourseLink course="COMP1521" /> or <CourseLink course="COMP2521" /> where you had to learn very specific and rigid kinds of algorithms or instruction patterns. Since this course is more focused on design, it just becomes about being able to spot when a program is programmed stiffly or too hard and fixing it in a natural way, or about being able to compare and contrast different server architectures. How hard is it to draw a digram? The only time this course becomes 'difficult' is actually when you have to lock in a bit to complete the assignments by the deadline, especially if you have a scuffed partner - but that's really quite average as opposed to being anything intellectually difficult.
+
+</ReviewSection>
+
+<ReviewSection>
+
+### Enjoyment
+
+<StarBar total={5} filled={frontmatter.enjoyment} />
+
+I found the overall content - using an object oriented approach and designing software systems at a high level to be cleaner - actually quite interesting. Because this course has such a manageable workload, and the content is quite easy, there is really no stress or pressure and you can just enjoy yourself. It is a lot similar to COMP1511 in that regard. The only parts I found were a bit unenjoyable was having to create diagrams or learn about the different buzzwords over and over (robust, efficient, agile, maintainable, elegant... omg). That, and having to deal with my bastard partner who left everything to last minute because they were too caught up with their other courses... the worst part about partner assessments is that you just end up having to leave your partner behind if you actually want to be responsible. Why punish the most competent and responsible students? It makes no sense...
+
+</ReviewSection>
+
+<ReviewSection>
+
+### Effort
+
+<StarBar total={5} filled={frontmatter.effort} />
+
+This course is also quite middling, effort-wise. The labs really don't take that long, and perhaps the 'hardest' thing about them was having to spend time talking about them with a tutor (I was on an online lab, but my tutor was really nice so it was relatively chill) or camping on the course forum to ask questions about ambiguities in the spec. The effort needed really steps up when you do the second assignment, not because of any external time pressure (it was given out in week 5 and due week 10, which is super long and generous) but because of my partner procrastinating as fuck (probably a good sign that the reason why most courses are considered difficult or time-consuming is because students procrastinate if anything). The exam is also very low pressure because the lectures notes are given, which makes it really nice (and this is one of the few exams I left early for rather than being anxious and pedantic).
+
+</ReviewSection>
+
+<ReviewSection>
+
+### Delivery
+
+<StarBar total={5} filled={frontmatter.delivery} />
+
+The content was overall delivered well through the slides and labs (although I didn't really watch a single lecture because the content is quite learnable, as opposed to another more technical course like COMP3891 which I took concurrently). This course also has quite supportive staff - my tutor was really nice and friendly, and I found similar activity by other tutors on the forum. Lowkey, though, it makes me want to be a tutor, seeing how easy their jobs are and yet the amount of fat stacks they're making...
+
+The only iffy part about delivery was that sometimes you really had to camp on the forums to get answers. That wasn't really enjoyable... but it all works out in a stress-free way at the end. I am now the proud self-proclaimed expert of slime absorption patterns and train deadlock scenarios.
+
+</ReviewSection>
+
+<ReviewSection>
+
+### Utility
+
+<StarBar total={5} filled={frontmatter.utility} />
+
+This course is actually really useful because of the overall design aspect and it actually made me think about how to refactor existing projects eg this website! I lowkey used to be totally intimidated by what classes even were but I feel quite confident now. A hidden boon of this course is that it also teaches you how to use the Run and Debug feature on VS Code - something that was incredibly useful for both this course and the other COMP course I was taking concurrently, <CourseLink course="COMP3891" />. In fact, I was actually surprised at how much overlap they seemingly randomly had - both courses were about creating abstractions and the pros and cons, both required extensive use of run and debug, and sometimes content from the other course was referenced at seemingly the perfect time (eg when talking about Design by Contract vs Defensive Programming paradigms by using kernel programming as an example in COMP2511, or looking at how the virtual file system layer which allows the kernel to communicate with the underlying architecture is really just a very hard-coded void pointer type assertion C method of polymorphism). 
+
+I also found this course quite useful in understanding why existing software was designed the way it was eg the fact that event listeners in the browsers literally implement a kind of Observer pattern (with publishers and subscribers) which I learnt back in <CourseLink course="COMP6080" /> last term, or how tedious methods of creating things in the discord.js extension was actually using a kind of Builder pattern. Once you recognise these patterns are everywhere, you also start to see how important they are to making software easy to understand without everything being a gigantic mess everywhere. Being able to dissect existing programs and also apply design patterns to your own programs make this course extremely useful.
+
+</ReviewSection>
+

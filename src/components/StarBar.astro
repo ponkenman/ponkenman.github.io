@@ -1,0 +1,29 @@
+---
+interface Props {
+  total: number;
+  filled: number;
+  otherClass?: string;
+}
+const { total, filled, otherClass } = Astro.props;
+const numToStars = (rating: number) => [...Array(total).keys()].map(i => filled > i ? "/svg/star-dark.svg" : "/svg/star-darkempty.svg");
+---
+<star-bar class:list={[otherClass]} rating={filled} data-total={total}>
+	<div class:list={["flex flex-row justify-start items-center rating-starbar"]}>
+		{numToStars(total).map(s => <img class:list={["h-[1.5rem]"]} src={s}/>)}
+	</div>
+</star-bar>
+<script>
+	const numToStars = (total: number, rating: number) => [...Array(total).keys()].map(i => (rating > i) ? "/svg/star-dark.svg" : "/svg/star-darkempty.svg");
+
+	class StarBar extends HTMLElement {
+		static observedAttributes = ["rating"];
+
+		attributeChangedCallback(name: string, oldValue: string, newValue: string) {
+      const total = Number(this.getAttribute("total"));
+			const stars = this.querySelector(".rating-starbar")?.children as HTMLCollectionOf<HTMLImageElement>;
+			numToStars(total, Number(newValue)).forEach((src, i) => stars[i].src = src);
+		}
+	}
+
+	customElements.define("star-bar", StarBar);
+</script>

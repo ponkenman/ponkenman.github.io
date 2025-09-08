@@ -1,0 +1,47 @@
+---
+import type { ReviewData } from '../../content.config';
+
+interface Props {
+  review: ReviewData;
+}
+const { review } = Astro.props;
+---
+<li>
+	<colour-button>
+		<button data-review={JSON.stringify(review)} class:list={[`hover:bg-[var(--course-btn-col)]`,"group", "p-5 cursor-pointer", "text-md", "grid grid-cols-3", "w-full", "course-btn", "rounded-md"]}>
+	<div class:list={["font-bold text-left"]}>
+		{review.id}
+	</div>
+	<div class:list={["col-span-2 flex flex-row justify-between"]}>
+		<div class:list={["text-left mr-1 font-bv text-lg"]}>
+				{review.longTitle}
+		</div>
+	<a class:list={["block opacity-100 lg:opacity-0 hover:underline", "group-hover:opacity-100", "btn-arrow"]} href={`/reviews/${review.id.toLowerCase()}`} title={`${review.id} review`} data-astro-prefetch>→</a>
+	</div>
+		</button>
+	</colour-button>
+</li>
+<script>
+	import { openCard } from "./card";
+	const courseButtons = document.querySelectorAll(".course-btn");
+	courseButtons.forEach(b => b.addEventListener("click", () => openCard(b)));
+</script>
+<script>
+
+	class ColourButton extends HTMLElement {
+		static observedAttributes = ["active"];
+		
+		attributeChangedCallback(name: string, oldValue: string, newValue: string) {
+			const btn = this.querySelector(".course-btn") as HTMLElement;
+			if (newValue == "true") {
+				btn.classList.add(`bg-[var(--course-btn-col)]`);
+				(btn.querySelector(".btn-arrow") as HTMLElement).style.opacity = "100";
+			} else {
+				btn.classList.remove(`bg-[var(--course-btn-col)]`);
+				(btn.querySelector(".btn-arrow") as HTMLElement).style = "";
+			}
+		}
+	}
+
+	customElements.define("colour-button", ColourButton);
+</script>

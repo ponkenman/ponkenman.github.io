@@ -1,0 +1,87 @@
+.main-colour {
+    background-color: var(--main-colour);
+}
+
+.main-dark {
+    background-color: var(--main-dark);
+}
+
+.main-white {
+    background-color: var(--main-white);
+}
+
+#review-article h3 {
+    padding-top: 4rem;
+    color: var(--main-dark);
+    font-family: "PlayfairDisplay";
+    font-size: 1.5rem;
+    text-decoration: underline;
+    text-decoration-color: var(--main-accent);
+    text-underline-offset: 0.25rem;
+    margin-bottom: 0.5rem;
+    text-decoration-skip-ink: none;
+}
+
+#review-article p {
+    font-family: "Manrope";
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: var(--main-dark);
+}
+
+:root {
+    scroll-behavior: auto;
+}
+
+.active {
+    text-decoration: underline;
+    text-decoration-color: var(--main-accent);
+    text-underline-offset: 2px;
+    text-decoration-thickness: 2px;
+    text-decoration-skip-ink: none;
+}
+
+.content-nav-entry {
+    transition: color 0.2s ease-out;
+}
+
+.content-nav-entry:hover {
+    color: var(--main-accent);
+    text-decoration: underline;
+    text-decoration-color: var(--main-accent);
+    text-underline-offset: 2px;
+    text-decoration-thickness: 2px;
+    text-decoration-skip-ink: none; 
+}
+
+.course-link {
+  transition: color 0.2s ease-out;
+}
+
+.course-link:hover {
+  text-decoration: underline;
+  color: var(--main-accent);
+  text-decoration-color: var(--main-accent);
+  text-decoration-skip-ink: none; 
+}
+
+#back-to-top {
+    transition: color 0.2s ease-out;
+}
+
+#back-to-top:hover {
+    color: var(--main-accent);
+    text-decoration-color: var(--main-accent);
+}
+
+#other-reviews {
+    transition: color 0.2s ease-out;
+}
+
+#other-reviews:hover {
+    color: var(--main-accent);
+    text-decoration-color: var(--main-accent);
+    text-decoration: underline;
+  color: var(--main-accent);
+  text-decoration-skip-ink: none; 
+}

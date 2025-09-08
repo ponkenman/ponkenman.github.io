@@ -12,7 +12,7 @@ export default tseslint.config(
   ...tseslint.configs.stylisticTypeChecked,
   ...tseslint.configs.strictTypeChecked,
   eslintPluginAstro.configs.base,
-  globalIgnores([`.astro/*`]),
+  globalIgnores([`.astro/*`, `**/*.astro`]),
   stylistic.configs.customize({
     semi: true,
     braceStyle: `1tbs`,
@@ -29,7 +29,6 @@ export default tseslint.config(
     },
     rules: {
       '@stylistic/yield-star-spacing': [`error`, `after`],
-      '@stylistic/quotes': [`error`, `backtick`],
     },
   },
 );

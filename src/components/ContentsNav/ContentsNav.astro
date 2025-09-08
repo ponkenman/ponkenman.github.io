@@ -1,0 +1,46 @@
+---
+const { pathname } = Astro.url;
+const categories = ["Overview", "Difficulty", "Enjoyment", "Effort", "Delivery", "Utility"] as const;
+---
+<nav class:list={[]} id="content-nav">
+  <ul class:list={["grid grid-cols-1"]}>
+    {categories.map(s => <li>
+      <content-nav-entry>
+        <a class:list={[`content-nav-entry w-full text-sm py-1 rounded-lg px-1 text-[var(--main-dark)] font-manrope`]} data-heading={s.toLocaleLowerCase()} href={ pathname + `#${s.toLocaleLowerCase()}`}>{s}</a>
+      </content-nav-entry>
+    </li>)}
+  </ul>
+</nav>
+<script>
+  class ContentNavEntry extends HTMLElement {
+		static observedAttributes = ["active"];
+		
+		attributeChangedCallback(name: string, oldValue: string, newValue: string) {
+      const a = this.querySelector("a")!;
+			if (newValue == "true") {
+				a.classList.add("active");
+			} else {
+        a.classList.remove("active");
+			}
+		}
+	}
+	customElements.define("content-nav-entry", ContentNavEntry);
+</script>
+<script>
+  const viewport = new IntersectionObserver((es) => {
+    es.forEach(e => {
+      if (e.isIntersecting) {}
+      const id = e.target.querySelector("h3")!.id;
+      const as = document.querySelector(`.content-nav-entry[data-heading=${id}]`)!;
+      const elem = as.closest("content-nav-entry")!;
+      elem.setAttribute("active", e.isIntersecting ? "true" : "false");
+    });
+  }, { 
+    rootMargin: "-20% 0% -40% 0%",
+  });
+
+  const entries = document.querySelectorAll(".review-section");
+  entries.forEach(e => {
+    viewport.observe(e);
+  });
+</script>

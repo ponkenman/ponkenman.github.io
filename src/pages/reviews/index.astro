@@ -1,9 +1,10 @@
 ---
 import "../../styles/global.css";
 import "../../styles/tierlist.css";
-import { dark, white } from "../../components/index2/colours";
-import TierContainer from "../../components/index2/TierContainer.astro";
+import TierContainer from "../../components/index/TierContainer.astro";
 import ModalBackdrop from "../../components/modal/ModalBackdrop.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
 
 ---
 
@@ -14,53 +15,55 @@ import ModalBackdrop from "../../components/modal/ModalBackdrop.astro";
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content="My UNSW course ratings tierlist" />
-		<title>Website</title>
+		<title>UNSW Course Tier List</title>
   </head>
-  <body class:list={white.bg}>
+  <body class:list={`bg-[var(--main-white)]`}>
 		<ModalBackdrop />
+		<Navbar />
     <main>
+			<hgroup class="px-5 md:pt-12 md:pb-12 md:my-1 md:px-40 shadow-md flex flex-col items-center">
+				<section class="p-3 flex flex-col items-center">
+					<p class="font-bv text-2xl my-3">UNSW Course Reviews</p>
+					<h1 class="font-playfair italic font-bold text-4xl sm:text-6xl my-3">Tier List</h1>
+				</section>
+			</hgroup>
 			<TierContainer 
 				title="S Tier (kino)"
 				description="These are the best courses I've taken at UNSW and the ones I will always glaze over and over. They don't have to be perfect, just consistently interesting enough to me and not annoying to learn. Highly recommended!"
 				rating='S'
-				containerColours={[white.bg, dark.text]}
-				buttonColours={{ primary: dark, secondary: white}}
+				containerColours={[`bg-[var(--s-tier-col)]`, `text-[var(--text-dark)]`]}
 			/>
 			<TierContainer 
 				title="A Tier (interesting)"
 				description="These courses are still great, even if they weren't my favourite courses to take. What separates these courses from S tier is that there is usually some small gripe or imperfection, usually with the syllabus or assessment structure (or maybe I'm just salty)."
 				rating='A'
-				containerColours={[dark.bg, white.text]}
-				buttonColours={{ primary: white, secondary: dark}}
+				containerColours={[`bg-[var(--a-tier-col)]`, `text-[var(--text-dark)]`]}
 			/>
 			<TierContainer 
 				title="B Tier (ok)"
-				description="These courses are all decent but have substantial room for improvement. Although they are worthwhile, they also definitely could have been done better. Their main issues usually involve some inherent or fundamental problem with the way the course is taught/structured. So far there's only one course... that's pretty good!"
+				description="These courses are all decent but have substantial room for improvement. Although they are worthwhile, they also definitely could have been done better. Their main issues usually involve some inherent or fundamental problem with the way the course is taught/structured."
 				rating='B'
-				containerColours={[white.bg, dark.text]}
-				buttonColours={{ primary: dark, secondary: white}}
+				containerColours={['bg-[var(--b-tier-col)]', `text-[var(--text-dark)]`]}
 			/>
 			<TierContainer 
 				title="C Tier (boring)"
 				description="These courses are a bit miserable and feel like a waste of time. Unfortunately they're also usually introductory or mandatory and so you don't really have an option. Only one course belongs here... so far..."
 				rating='C'
-				containerColours={[dark.bg, white.text]}
-				buttonColours={{ primary: white, secondary: dark}}
+				containerColours={[`bg-[var(--c-tier-col)]`, `text-[var(--text-dark)]`]}
 			/>
 			<TierContainer 
 				title="D Tier (dogshit)"
 				description="These courses (ie this course as there's only one) are boring, unmotivating, tedious, and a general waste of time. You will stare at the clock and you will feel like you are waiting for something that never arrives."
 				rating='D'
-				containerColours={[white.bg, dark.text]}
-				buttonColours={{ primary: dark, secondary: white}}
+				containerColours={[`bg-[var(--d-tier-col)]`, `text-[var(--text-dark)]`]}
 			/>
 			<TierContainer 
 				title="F Tier (affront to higher education)"
 				description="These courses make you question why anyone would pay for university voluntarily. It's honestly embarrassing that these courses (ie this course) even exist(s). It is a complete waste of time and you should consider just skipping everything."
 				rating='F'
-				containerColours={[dark.bg, white.text]}
-				buttonColours={{ primary: white, secondary: dark}}
+				containerColours={[`bg-[var(--f-tier-col)]`, `text-[var(--text-dark)]`]}
 			/>
     </main>
+		<Footer />
   </body>
 </html>

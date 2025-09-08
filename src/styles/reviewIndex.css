@@ -1,0 +1,18 @@
+.tier-container h2 {
+    text-decoration: underline;
+    text-decoration-color: var(--main-accent);
+    text-underline-offset: 0.25rem;  
+    text-decoration-skip-ink: none;
+}
+
+:root {
+  --s-tier-col: var(--main-white);
+  --a-tier-col: var(--main-pink50);
+  --b-tier-col: var(--main-white);
+  --c-tier-col: var(--main-pink50);
+  --d-tier-col: var(--main-white);
+  --f-tier-col: var(--main-pink50);
+
+  --course-btn-col: var(--main-pink200);
+  --text-dark: var(--main-dark);
+}

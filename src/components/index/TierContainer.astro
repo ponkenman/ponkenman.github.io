@@ -1,0 +1,36 @@
+---
+import { getCollection } from 'astro:content';
+import CourseButton from './CourseButton.astro';
+import ReviewCard from './ReviewCard.astro';
+import "../../styles/reviewIndex.css";
+import type { Rating } from "../../content.config.ts";
+
+interface Props {
+  containerColours: string[];
+  title: string;
+  rating: Rating;
+  description: string;
+}
+
+const { containerColours, title, rating, description } = Astro.props;
+
+const reviews = await getCollection(`reviews`);
+const rateToList = (rating: Rating) => reviews.filter(r => r.data.rating === rating).toSorted((a, b) => a.data.id.localeCompare(b.data.id));
+
+---
+<div class:list={[containerColours, "tier-container", "font-manrope min-h-[100lvh] py-15 md:py-20"]}>
+  <section class:list={["grid grid-cols-1 lg:grid-cols-2 h-full xl:mx-30 lg:mx-5 md:mx-20 xl:gap-10 lg:gap-5 gap-10"]}>
+    <section>
+      <h2 class:list={["font-playfair text-2xl ml-5 pb-10 underline"]}>{title}</h2>
+      <div class:list={["p-5 font-bv text-lg"]}>{description}</div>
+      <ul class:list={["mt-5"]}>
+        {rateToList(rating).map(ra => <CourseButton review={ra.data} />)}
+      </ul>
+    </section>
+    <section class:list={["max-h-[100lvh] sticky top-0"]}>
+      <div class:list={["h-full justify-start"]}>
+        <ReviewCard />
+      </div>
+    </section>
+  </section>
+</div>

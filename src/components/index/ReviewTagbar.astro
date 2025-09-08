@@ -1,0 +1,38 @@
+---
+
+---
+<review-tagbar>
+  <div class:list={[`text-[var(--main-dark)]`, "flex flex-row justify-start gap-2 py-3", "tagbar-container"]}>
+    {/* review.tags.map(t =>  <div class:list={[pink.bg, "text-sm px-2 py-1 rounded-full"]}>{t}</div>) */}
+  </div>
+</review-tagbar>
+<script>
+	import { createTag } from "./tags";
+
+  class ReviewTagbar extends HTMLElement {
+		static observedAttributes = ["tags"];
+
+		attributeChangedCallback(name: string, oldValue: string, newValue: string) {
+      const newTags = JSON.parse(newValue) as string[];
+			const container = this.querySelector(".tagbar-container")! as HTMLElement;
+		  if (container.children.length > newTags.length) {
+        let elem = container.children.item(newTags.length);
+        while (elem) {
+          container.removeChild(elem);
+          elem = container.children.item(newTags.length);
+        }
+      }
+
+		  newTags.forEach((t, i) => {
+				let tagDiv = container.children.item(i);
+				if (tagDiv) {
+					tagDiv.textContent = t;
+				} else {
+					container.appendChild(createTag(t));
+				}
+			});
+		}
+	}
+
+	customElements.define("review-tagbar", ReviewTagbar);
+</script>

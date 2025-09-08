@@ -1,0 +1,16 @@
+---
+import ReviewPage from "../../layouts/ReviewPage.astro";
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('reviews');
+  return posts.map(post => ({
+    params: { id: post.id },
+    props: { id: post.id },
+  }));
+}
+
+const { id } = Astro.props;
+
+---
+<ReviewPage id={id}/>

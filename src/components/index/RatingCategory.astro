@@ -1,0 +1,29 @@
+---
+interface Props {
+	label: string;
+	key: string;
+}
+const { label, key } = Astro.props;
+const numToStars = (rating: number) => [1, 2, 3, 4, 5].map(i => rating >= i ? "/svg/star-dark.svg" : "/svg/star-darkempty.svg");
+---
+<rating-category class:list={["flex flex-col items-center"]} key={key}>
+	<div class:list={["underline decoration-[var(--main-accent)] decoration-2 underline-offset-4 pb-1"]}>{label}: <span class:list={["font-bold"]}><span class:list={["rating-num"]}>X</span>/5</span></div>
+	<div class:list={["flex flex-row justify-start items-center rating-starbar"]}>
+		{numToStars(3).map(s => <img class:list={["h-[1.5rem]"]} src={s}/>)}
+	</div>
+</rating-category>
+<script>
+	const numToStars = (rating: number) => [1, 2, 3, 4, 5].map(i => rating >= i ? "/svg/star-dark.svg" : "/svg/star-darkempty.svg");
+
+	class RatingCategory extends HTMLElement {
+		static observedAttributes = ["rating"];
+
+		attributeChangedCallback(name: string, oldValue: string, newValue: string) {
+			this.querySelector(".rating-num")!.textContent = newValue;
+			const stars = this.querySelector(".rating-starbar")?.children as HTMLCollectionOf<HTMLImageElement>;
+			numToStars(Number(newValue)).forEach((src, i) => stars[i].src = src);
+		}
+	}
+
+	customElements.define("rating-category", RatingCategory);
+</script>

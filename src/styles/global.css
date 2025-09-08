@@ -2,28 +2,28 @@
 
 @font-face {
   font-family: "PlayfairDisplay";
-  src: url("public/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf") format("ttf");
+  src: url("/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf"), format("ttf");
 }
 
 @font-face {
   font-family: "PlayfairDisplay";
-  src: url("public/fonts/Playfair_Display/PlayfairDisplay-Italic-VariableFont_wght.ttf") format("ttf");
+  src: url("/fonts/Playfair_Display/PlayfairDisplay-Italic-VariableFont_wght.ttf"), format("ttf");
   font-style: italic
 }
 
 @font-face {
   font-family: "Manrope";
-  src: url("public/fonts/Manrope/Manrope[wght].ttf") format("ttf");
+  src: url("/fonts/Manrope/Manrope-VariableFont_wght.ttf"), format("ttf");
 }
 
 @font-face {
   font-family: "Baskerville";
-  src: url("public/fonts/Baskervville/Baskervville-Regular.ttf") format("ttf");
+  src: url("/fonts/Baskervville/Baskervville-Regular.ttf"), format("ttf");
 }
 
 @font-face {
   font-family: "Baskerville";
-  src: url("public/fonts/Baskervville/Baskervville-Italic.ttf") format("ttf");
+  src: url("public/fonts/Baskervville/Baskervville-Italic.ttf"), format("ttf");
   font-style: italic;
 }
 
@@ -103,4 +103,31 @@
 .link-to:hover {
   font-weight: bold;
   text-decoration: underline;
+}
+
+:root {
+  --main-dark: #4D3A4D;
+  --main-lightcol: #fde9f0;
+  --main-colour: #fcc8da;
+  --main-accent: #ff80aa;
+  --main-text: #ff5482;
+  --main-deep: #a13a69;
+  --main-white: #fffafc;
+
+  --main-pink50: #fde9f0;
+  --main-pink100: #fcc8da;
+  --main-pink200: #ffa4c3;
+  --main-pink300: #ff80aa;
+  --main-pink400: #ff6696;
+  --main-pink500: #ff5482;
+  --main-pink600: #f44f7e;
+  --main-pink700: #dd4978;
+  --main-pink800: #c74373;
+  --main-pink900: #a13a69;
+
+  --tag-colour: var(--main-pink100);
+}
+
+::selection {
+  background-color: var(--main-colour);
 }
