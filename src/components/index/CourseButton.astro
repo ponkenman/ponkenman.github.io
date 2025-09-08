@@ -13,7 +13,7 @@ const { review } = Astro.props;
 		{review.id}
 	</div>
 	<div class:list={["col-span-2 flex flex-row justify-between"]}>
-		<div class:list={["text-left mr-1 font-bv text-lg"]}>
+		<div class:list={["text-left mr-4 font-bv text-lg"]}>
 				{review.longTitle}
 		</div>
 	<a class:list={["block opacity-100 lg:opacity-0 hover:underline", "group-hover:opacity-100", "btn-arrow"]} href={`/reviews/${review.id.toLowerCase()}`} title={`${review.id} review`} data-astro-prefetch>→</a>
