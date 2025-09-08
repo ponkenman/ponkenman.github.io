@@ -20,19 +20,19 @@ import ReviewTagbar from "./ReviewTagbar.astro";
 		<a href="/reviews" class:list={["review-link", "text-sm hover:underline cursor-pointer decoration-[var(--main-accent)] decoration-2 underline-offset-2"]} data-astro-prefetch>Read review →</a>
 	</div>
 	<ul class:list={["grid grid-cols-1 md:grid-cols-2 gap-2 text-md flex-1 min-h-[35lvh]"]}>
-		<li>
+		<li class:list={["flex flex-col justify-center"]}>
 			<RatingCategory label="Difficulty" key="difficulty"/>
 		</li>
-		<li>
+		<li class:list={["flex flex-col justify-center"]}>
 			<RatingCategory label="Enjoyment"  key="enjoyment"/>
 		</li>
-		<li>
+		<li class:list={["flex flex-col justify-center"]}>
 			<RatingCategory label="Effort" key="effort"/>
 		</li>
-		<li>
+		<li class:list={["flex flex-col justify-center"]}>
 			<RatingCategory label="Delivery"  key="delivery"/>
 		</li>
-		<li class:list={["md:col-span-2"]}>
+		<li class:list={["md:col-span-2 flex flex-col justify-center"]}>
 			<RatingCategory label="Utility" key="utility"/>
 		</li>
 	</ul>
