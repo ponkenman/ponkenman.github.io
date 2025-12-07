@@ -1,5 +1,5 @@
 import { defineCollection, z } from 'astro:content';
-import { file, glob } from 'astro/loaders';
+import { glob } from 'astro/loaders';
 
 const grades = ['SS', 'S', 'A', 'B', 'C', 'D', 'F'] as const;
 

@@ -1,14 +1,19 @@
 import type { ReviewData } from '../../content.config';
 import { closeModal, openModal } from '../modal/modal';
 
-export const openCard = (b: Element) => {
-  const container = b.closest('.tier-container')!;
+export const openCard = (b: HTMLElement, e: Event) => {
+  if (e.target instanceof Element && e.target.classList.contains('btn-arrow')) {
+    return;
+  }
+  const container = b.closest('.tier-container') as HTMLElement;
   const card = container.querySelector('.review-card') as HTMLElement;
   if (card.style.display == 'none') {
     card.style.display = 'flex';
 
     const media = window.matchMedia('(width >= 64rem)');
-    media.addEventListener('change', () => { closeCard(b); }, { once: true });
+    media.addEventListener('change', () => {
+      closeCard(b);
+    }, { once: true });
 
     // Animations
     if (media.matches) {
@@ -26,21 +31,23 @@ export const openCard = (b: Element) => {
     };
   }
 
-  const data = JSON.parse((b as HTMLElement).dataset.review!) as ReviewData;
+  const data = JSON.parse(b.dataset.review as string) as ReviewData;
 
-  const title = card.querySelector('.review-longtitle')!;
+  const title = card.querySelector('.review-longtitle') as HTMLElement;
   title.textContent = data.longTitle;
 
-  const id = card.querySelector('.review-course-id')!;
+  const id = card.querySelector('.review-course-id') as HTMLElement;
   id.textContent = data.id;
 
-  const tagbar = card.querySelector('review-tagbar')!;
+  const tagbar = card.querySelector('review-tagbar') as HTMLElement;
   tagbar.setAttribute('tags', JSON.stringify(data.tags));
 
   const categories = card.querySelectorAll('rating-category');
-  categories.forEach((c) => { c.setAttribute('rating', data[c.getAttribute('key') as keyof ReviewData] as string); });
+  categories.forEach((c) => {
+    c.setAttribute('rating', data[c.getAttribute('key') as keyof ReviewData] as string);
+  });
 
-  const link = card.querySelector('.review-link')!;
+  const link = card.querySelector('.review-link') as HTMLAnchorElement;
   link.href = `/reviews/${data.id.toLowerCase()}`;
   link.title = `${data.id} review`;
 
@@ -56,7 +63,7 @@ export const openCard = (b: Element) => {
     */
   }
 
-  const cb = b.closest('colour-button')!;
+  const cb = b.closest('colour-button') as HTMLElement;
   cb.setAttribute('active', 'true');
   (container.querySelectorAll('colour-button')).forEach((c) => {
     if (c !== cb) {
@@ -65,9 +72,9 @@ export const openCard = (b: Element) => {
   });
 };
 
-export const closeCard = (b: Element) => {
-  const container = b.closest('.tier-container')!;
-  const card = container.querySelector('.review-card')!;
+export const closeCard = (b: HTMLElement) => {
+  const container = b.closest('.tier-container') as HTMLElement;
+  const card = container.querySelector('.review-card') as HTMLElement;
 
   closeModal();
 
@@ -85,5 +92,7 @@ export const closeCard = (b: Element) => {
   };
   card.dataset.visible = 'false';
 
-  container.querySelectorAll('colour-button').forEach((c) => { c.setAttribute('active', 'false'); });
+  container.querySelectorAll('colour-button').forEach((c) => {
+    c.setAttribute('active', 'false');
+  });
 };

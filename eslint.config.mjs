@@ -1,12 +1,12 @@
 // @ts-check
 
 import eslint from '@eslint/js';
-import { globalIgnores } from 'eslint/config';
+import { defineConfig, globalIgnores } from 'eslint/config';
 import tseslint from 'typescript-eslint';
 import stylistic from '@stylistic/eslint-plugin';
 import eslintPluginAstro from 'eslint-plugin-astro';
 
-export default tseslint.config(
+export default defineConfig(
   eslint.configs.recommended,
   tseslint.configs.recommendedTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
@@ -29,6 +29,7 @@ export default tseslint.config(
     },
     rules: {
       '@stylistic/yield-star-spacing': [`error`, `after`],
+      '@typescript-eslint/non-nullable-type-assertion-style': 'off',
     },
   },
 );

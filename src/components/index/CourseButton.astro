@@ -24,7 +24,7 @@ const { review } = Astro.props;
 <script>
 	import { openCard } from "./card";
 	const courseButtons = document.querySelectorAll(".course-btn");
-	courseButtons.forEach(b => b.addEventListener("click", () => openCard(b)));
+	courseButtons.forEach(b => b.addEventListener("click", (event) => openCard(b, event)));
 </script>
 <script>
 

@@ -1,18 +1,20 @@
 import { closeCard } from '../index/card';
 
-export const openModal = (b: Element) => {
-  const backdrop = document.querySelector('#modal-backdrop')!;
+export const openModal = (b: HTMLElement) => {
+  const backdrop = document.querySelector('#modal-backdrop') as HTMLElement;
   backdrop.style.display = 'block';
   backdrop.style.animation = '0.3s ease-in fadeInBackdrop';
 
   backdrop.onanimationend = () => {
     backdrop.style.animation = '';
-    backdrop.addEventListener('click', () => { closeCard(b); }, { once: true });
+    backdrop.addEventListener('click', () => {
+      closeCard(b);
+    }, { once: true });
   };
 };
 
 export const closeModal = () => {
-  const backdrop = document.querySelector('#modal-backdrop')!;
+  const backdrop = document.querySelector('#modal-backdrop') as HTMLElement;
   backdrop.style.animation = '0.3s ease-in-out fadeOutBackdrop';
 
   backdrop.onanimationend = () => {
