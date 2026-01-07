@@ -6,37 +6,26 @@ const grades = ['S', 'A', 'B', 'C', 'D', 'F'] as const;
 const terms = ['1', '2', '3'] as const;
 
 const schema = z.object({
-    dateReviewed: z.date(),
-    difficulty: z.number().min(0).max(5),
-    delivery: z.number().min(0).max(5),
-    effort: z.number().min(0).max(5),
-    enjoyment: z.number().min(0).max(5),
-    id: z.string(),
-    longTitle: z.string(),
-    rating: z.enum(grades),
-    tags: z.array(z.string()),
-    utility: z.number().min(0).max(5),
-  })
+  dateReviewed: z.date(),
+  difficulty: z.number().min(0).max(5),
+  delivery: z.number().min(0).max(5),
+  effort: z.number().min(0).max(5),
+  enjoyment: z.number().min(0).max(5),
+  id: z.string(),
+  longTitle: z.string(),
+  offering: z.object({
+    year: z.number().min(2024).max(2027),
+    term: z.enum(terms),
+  }),
+  rating: z.enum(grades),
+  sections: z.array(z.string()).optional(),
+  tags: z.array(z.string()),
+  utility: z.number().min(0).max(5),
+});
 
 const reviews = defineCollection({
   loader: glob({ pattern: '**/*.mdx', base: './src/data/reviews' }),
-  schema: z.object({
-    dateReviewed: z.date(),
-    difficulty: z.number().min(0).max(5),
-    delivery: z.number().min(0).max(5),
-    effort: z.number().min(0).max(5),
-    enjoyment: z.number().min(0).max(5),
-    id: z.string(),
-    longTitle: z.string(),
-    offering: z.object({
-      year: z.number().min(2024).max(2027),
-      term: z.enum(terms),
-    }),
-    rating: z.enum(grades),
-    sections: z.array(z.string()).optional(),
-    tags: z.array(z.string()),
-    utility: z.number().min(0).max(5),
-  }),
+  schema: schema,
 });
 
 export const collections = { reviews };
@@ -54,7 +43,7 @@ export interface ReviewData {
   offering: {
     year: number;
     term: (typeof terms)[number];
-  }
+  };
   sections?: string[];
   rating: (typeof grades)[number];
   tags: string[];

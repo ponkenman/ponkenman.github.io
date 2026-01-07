@@ -1,4 +1,4 @@
-import type { ReviewData } from "../../content.config";
+import type { ReviewData } from '../../content.config';
 
 export const createTag = (value: string) => {
   const tag = document.createElement('div');
@@ -7,4 +7,4 @@ export const createTag = (value: string) => {
   return tag;
 };
 
-export const getTagsFromData = (data: ReviewData) => [...data.tags, data.offering.year % 100 + 'T' + data.offering.term, data.rating.toUpperCase() + ` Tier`];
+export const getTagsFromData = (data: ReviewData) => [...data.tags, (data.offering.year % 100).toString() + 'T' + data.offering.term, data.rating.toUpperCase() + ` Tier`];
