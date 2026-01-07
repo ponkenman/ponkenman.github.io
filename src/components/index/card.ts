@@ -1,5 +1,6 @@
 import type { ReviewData } from '../../content.config';
 import { closeModal, openModal } from '../modal/modal';
+import { getTagsFromData } from '../tags/tags';
 
 export const openCard = (b: HTMLElement, e: Event) => {
   if (e.target instanceof Element && e.target.classList.contains('btn-arrow')) {
@@ -40,7 +41,8 @@ export const openCard = (b: HTMLElement, e: Event) => {
   id.textContent = data.id;
 
   const tagbar = card.querySelector('review-tagbar') as HTMLElement;
-  tagbar.setAttribute('tags', JSON.stringify(data.tags));
+  const tags = getTagsFromData(data);
+  tagbar.setAttribute('tags', JSON.stringify(tags));
 
   const categories = card.querySelectorAll('rating-category');
   categories.forEach((c) => {

@@ -1,0 +1,144 @@
+---
+title: 'COMP3821 Course Review'
+tags: ["Computer Science"]
+dateReviewed: 2025-12-10
+difficulty: 5
+delivery: 5
+effort: 2
+enjoyment: 5
+id: "COMP3821"
+longTitle: "Extended Algorithm Design and Analysis"
+offering:
+    year: 2025
+    term: '3'
+rating: 'S'
+sections:
+    - Overview
+    - Content
+    - Assessment
+    - Difficulty
+    - Enjoyment
+    - Effort
+    - Delivery
+    - Utility
+utility: 3
+---
+import StarBar from "../../components/StarBar.astro";
+import ReviewSection from "../../components/ReviewSection.astro";
+import CourseLink from "../../components/CourseLink.astro";
+
+<ReviewSection>
+
+### Overview
+
+Prerequisites: Min mark of 70 in <CourseLink course="COMP2521" /> and min mark of 70 in <CourseLink course="MATH1081" />
+
+Writing this on the same day as finishing the final exam, I did alright but not perfect. Looking back this course is what all uni courses should be like. This course is incredibly mentally stimulating - almost akin to law - and you learn so much you almost get impressed by yourself from just existing post taking this course. In the best possible way, this feels like the university equivalent of daycare. I felt like I was playing with my toy trucks all day.
+
+First let's get some of the hysteria out of the way. This course is not perfect. I don't think the forum serves any purpose beyond announcements and 'tryhards' flexing (but how tryhard can you get when you are in a course taken exclusively by sweats). The poster and presentation worth 20% took way too much effort and making it group work was stressful (although of my three group work courses this term this one was by far the easiest and most laidback). The weekly proof submissions can be very nitpicky although you get the hang of how to be rigorous and thorough. But from hearing about this course's general vibe from the endless moaning of online complainers and course reviews and forgotten conversations with quasi-strangers, I was expecting something with an insane workload that we would have to slave away at. Surprisingly, however, the workload of this course is actually quite low - probably the lightest course I took this term - and it is not that hard, unless you are a dumbass. And quite frankly, the average student is quite stupid. 
+
+What makes this course quite thorough is how rigorous everything is. This course is drenched and dripping with detail that actually matters. The entire course is structured around learning different strategies to solve problems using algorithms, of which you will do many. However, its not really the content itself which makes this course difficult but the level of abstract thinking required. You need to be able to recognise patterns enough to know when to apply particular strategies to seemingly unrelated problems, or 'reduce' one problem to an instance of another problem and show that they're logically equivalent. This takes a level of discipline and rigour that I definitely was not used to in Computer Science before taking this course. It is true that there is really zero coding, besides possibly doing it as part of your 20% 'passion project'. But the problem-solving mindset you develop dominates any other programming course prior. Things like refactoring code using object oriented design patterns or coding websites really feel much much easier when you develop a level of maturity in your abstract thinking abilities.  
+
+Given the level of rigour and discipline required (this course really is a kind of skill check), I think it's unsurprising that many computer science students hate this course. To be honest, some computer science courses in UNSW lean too much towards the 'real world' label, bringing in guest lecturers from 'industry' and talking more about programming software as a 'product', which isn't too bad if it wasn't at the expense of not actually learning anything and feeling like you're wasting your money. But maybe such empty hollow ringing of bells and dogwhistles is enough to occupy the overstimulated affection-starved insecure low self-worth low redeemable quality child who is crying and shitting their diaper that they cannot run on the hamster wheel in the rat race like all the other rodents scurrying around in the sewers, gnawing at bits of undigested food in all the shit. It is true that definitely some, perhaps most, who am I kidding, nearly all, of computer science students are doing it because they want a job in the industry. It could be true that most students couldn't give a shit about the beauty of abstract thinking and problem solving in showing some mapping of students can be thought of as a particular graph with certain vertices and edges. It may be that familiarity with admittedly niche theorems and algorithms is and will never be relevant in the industry for the average person. It may be that students see university from the frame of reference of doing it only because its whats required for a job, blinded by the light at the end of the three or four year tunnel that they can only see when they scrunch their eyes shut in tears after gangstalking alumni on Linkedin, their life force drawn to the flame they carry that burns them like a magnetic moth reincarnation of that one guy who got assassinated in the fucking throat and who I tried to reference in a rambly way. But when I think of university, the medieval concept of learning shit for fun and bumming around and finding comfort in discussing academically niche things with people with similar knowledge, this course could not be closer from that ideal state of bring. 
+
+Of course, bums who don't give a shit about the 'discipline' of computer science as a source of academic fascination but as a trade they want to get certified for probably take the lower version of this course (COMP3121). And maybe there it is harder when you have your helmets and training wheels and are spoonfed the details (actually I don't know, I just want to feel superior, but in all honesty its probably fine). But I think any criticism against the utility or purpose of this course, or against its difficulty or subject matter, reflect a deeper structural problem about how people view university mainly as something easy that everyone can do to get a job - a problem that no admin team alone can solve.
+
+</ReviewSection>
+
+<ReviewSection>
+
+### Content
+
+But let's actually talk about the course rather than let me wax diarrohea on the state of modern expectations of university. This course revolves around, essentially, learning how to solve problems using algorithms by solving a lot of problems using algorithms. The <CourseLink course="MATH1081" /> prerequisite is only there because you need to be familiar with graph terminology (they re introduce everything you need to know), as well as the basic elements of proof, logic, an intuitive understanding of partial orders, recurrences, and set theory (for learning about matroids). If you can read mathematical notation well enough (there exists, for all, etc) you will be fine. The <CourseLink course="COMP2521" /> prerequisite is because this is essentially diving into the theory behind some of your favourite algorithms in that course eg merge sort, Dijkstra's algorithm, but of course with more algorithms. 
+
+The course is split into learning about five or perhaps six 'paradigms' or 'topics' on problem solving.
+
+The first three or four weeks are spent on a brief remit into 'sweepline' algorithms (essentially problems involving iterating through a possibly sorted list of values to calculate something using a clever method) and graph reductions (solving problems by constructing new graphs and operating on the new graph). 
+
+The first main topic is the paradigm of 'greedy algorithms' - you get a rough intuition of when they work and when they don't, how to choose a good greedy heuristic, how to prove them in either a 'greedy exchange' or 'greedy stays ahead' way, and then a range of fun problems which have greedy algorithms, such as: how to place the minimum number of cell towers that cover a row of houses modelled as a line, how to store files on a tape to minimise retrieval time, calculating the most optimal order of performing certain jobs. You then foray into a subtopic on graphs (pretty interesting) where you learn about strongly connected components and condensation graphs, Tarjan's algorithm (and Dijkstra's algorithm again), and topological sorts, and how those can be used to solve problems. You learn about a mathematical 'structure' known as a matroid, which essentially represents how to determine subsets of 'independence' (that is, feasible solutions to a problem, if you can reduce it in a clever way) over some ground set. You then learn about how matroids often naturally express problems whcih can be solved greedily, look at the general matroid optimiality algorithm, and then look at how Kruskal's algorithm (which finds a minimum spanning tree) may be formulated using a matroid and some other cool data structures. This first topic is by far the largest but also, in my opinion, the most interesting and an incredibly strong opener to the course.
+
+The second main topic is essentially learning what the hell P and NP even means. You learn about the importance of polynomial time algorithms and how some problems probably odn't have polynomial time algorithms, although any possible solution can be verified in polynomial times. You also learn how to show a given problem is NP-hard by reducing from any existing problem. An important practical subtopic of this is learning about linear programming - how you can formulate problems with restrictions (eg how many burgers can I eat given my tummpy has a certain capacity) as a pure system of linear equations and inequalities with variables, and how surprisingly restricting the solution set to integers means it is not solvable on polynomial time (although letting it remain any real number still has a polynomial time algorithm). You also learn about approximation algorithms which guarantee a solution which may not be optimal but is within some ratio of the most optimal solution, often in polynomial time. Something fascinating and perhaps where the course began to really shine was the revelation that relaxing an integer linear program to allow for real numbers can naturally produce, through some clever algebra, a guaranteed approximation algorithm. The connection seemed pretty random but it existed. There is some discussion afterwards about more complex complexity classes but its pretty much for fun.
+
+The third main topic is 'divide and conquer' - a style of algorithm where you solve a main problem by dividing it into subproblems, conquering (solving them individually, often recursively), and combining to attain your solution. the classic example is merge sort, which splits an array in half and recursively sorts each half before recombining. The four main things in this topic are: how to use merge sort to count 'inversions' in an array (pairs where a bigger value appears earlier than a smaller value), how to analyse the time complexity of a recurrence using the 'Master Theorem', how to do multiplication of big numbers fast using the Karatsuba method, and using the Fast Fourier Transform to calculate convolutions of polynomials to solve problems (where oftentimes the coefficient of the produced polynomial has some significance). By far the most mathy part of the course, but still understandable.
+
+The last two topics are quite short and tie this course up in a cute bow. The penultimate topic is about flow networks, what they are (basically directed graphs with 'flows'), finding the maximum possible flow, and surprisingly common reductions to, for example, partial orders, or matching one group of things to another thing, or bipartite graph matchings. There is also some rediscussion of matroids although it is not too relevant here. The final topic is dynamic programming - similar to divide and conquer, except here you solve problems from the bottom up by solving certain base cases and using recurrences to build up more cases until you get to the solution you want. An easy example is hopscotch where you can step one square or jump two squares - how many different ways are there of getting to the nth square? Well clearly you just add the number of ways of getting to the previous square and the second last square, since the only way you can get on a square is by stepping or jumping from another, and the base case being the first and second squares where this kind of breaks down. This type of recurrence is more akin to the recurrences about tiling using blocks that you see in <CourseLink course="MATH1081" />. However, note that the parameters can increase to three and can get pretty messy to think about, especially fast during an exam. 
+
+</ReviewSection>
+
+<ReviewSection>
+
+### Assessment
+
+To be honest, its not that much content. The bulk of the difficulty comes from having to apply these strategies by yourself, in an original and innovative way, to solve problems you have not really seen before. The focus on problem solving is also reflected in the assessment structure: a 20% weekly 'portfolio' including a 'peer review', a 20% group passion project, a 20% 24 hour midterm take home online exam, and a 40% end term exam to take the edge off. I'll discuss each one in turn.
+
+The portfolio effectively involves: you have a three hour workshop every week you need to attend, which consistents of a group of 30-40 students in your cohort and some tutors split into groups of 5-8, and you're given some problems you need to solve based on last week's lecture. Although you get the problems in advance (like the start of the week), nobody ever really reads them. It apparently varies between each tutor team in each workshop, but my tutors just got us to do everything, even the guided problems which they were apparently supposed to do for us (maybe we were that goated). It is literally just three hours of solving problems with your random group. This was by far where most of the 'fun' in this course was. Was I partying? No. To be honest, its not all of them, but some computer science students stank and had body odour like hell. Some were also too introverted to really contribute anything which is a bit sad. But the majority of people were very chill, affable, and easy to relate to. And being able to just brainstorm different approaches on how to solve problems was really fun. Maybe this is me flexing now, but the most fun part was getting the solution, especially when you rely mostly on your intutiton. Once you get the solution, you can discuss it with your tutor and try to rigorously prove it. After the week's workshops are all done, each student is randomly allocated a question from that week's workshop to write and submit a formal proof for (both describing the algorithm, proving its correctness rigorously, and analysing its time complexity). There is also a peer review about how well your group members participated but to be honest it didn't seem that relevant. The weekly workshops are basically the equivalent of labs and they are honestly quite wonderful. Going in person and talking, though I dreaded going to a 12pm class, was actually quite fun, except for week 7 and 10 when nobody bothers showing up and you're left with the tryhards. The writeups, though you do need to write using LATEX and typesetting, are also quite chill, although getting it super rigorous could take about 2-4 hours. 
+
+The 20% midterm is self explanatory. We had 24 hours to do it (although it really took maybe 4-8 hours) and there were five questions. These mostly tested the first two topics which makes sense timing-wise ie greedy algorithms and linear programs/NP-hardness. The 40% exam which I just took, obviously, tested the other three topics (although sprinkled in some greedy and NP-hardness in the 5-question multiple choice section), with one question for each topic (dynamic programming, flow networks, and convolutions were my exam's ordering). 
+
+The only outlier to the constant problem sovling is the 20% passion project. I was super scared because I didn't know anyone doing the course but luckily I found some super chill people who I lowkey hated but still did fine with in my workshop. The passion project can be anyhing - scholarly (ie a research report on the latest algorithm 'stuff'), creative, experimental, etc. We decided to implement a path tracer which is pretty cool, and by 'we' I mean one guy did it while we did the report last minute. The project is a bit tedious because there are deadlines and project checkins at the start, middle, and end of term, meaning you kind of have to be consistent. However we did pretty well for doing everything last minute (and me not actually doing anything). Honestly as well the project wasn't really that relevant, and felt like the kind of creative assignment you do for primary school science or something.
+
+
+Overall, this course is really fun because its just problem solving over and over using algorithms. Even though it is purely theoretical (as in you never have to touch your text editor if you don't want to), I learned way more doing this course than some of the supposedly practical other courses in this degree. The sad thing about doing this peak course now is it probably goes all downhill from here (and in fact it did go downhill this term). But that is not this course's fault. This course is great.
+
+</ReviewSection>
+
+<ReviewSection>
+
+### Difficulty
+
+<StarBar total={5} filled={frontmatter.difficulty} />
+
+This course is maxed out in difficulty not because of the content but because of the level of rigour and discipline you need to have in solving problems ultimately by yourself. Every relevant detail needs to be accounted for in your proof (although don't state the obvious, you'll lose for that as well). To be honest, it also sometimes feels like nitpicking. 
+
+Although, don't get me wrong, there is definitely a lot of content, especially when you start learning about random theorems associated with (no offense) random poeple. This is surprisingly the second course where we needed to bring paper notes to our in-person exams. And it was worth doing so. 
+
+To be honest, I'm a little butthurt from being marked down for not writing a few words for my workshop submissions (although I'll do quite well overall probably). But unlike some other courses where it feels like you're being gaslit, here the high expectations make sense. You need to be rigorous. It needs to all logically fit into place.
+
+By difficulty, I don't mean time it takes to learn the content. That's actually quite easy (for example, if you read/skim the lecture slides on your way to uni, you can still make meaningful contributions). But it is definitely hard to come up with solutions by yourself, especially for dynamic programming or convolutions (the hardest in my opinion).
+
+</ReviewSection>
+
+<ReviewSection>
+
+### Enjoyment
+
+<StarBar total={5} filled={frontmatter.enjoyment} />
+
+This gets a justified five if, like me, you think applying abstract thinking and pattern recognition to solve problems is fun. It is just innately fun for me. But if you don't understand what is even happening, or don't understand the content, this will probably just seem like a bunch of words floating around. It's unfortunately quite subjective. It is very satisfying being able to solve problems. 
+
+</ReviewSection>
+
+<ReviewSection>
+
+### Effort
+
+<StarBar total={5} filled={frontmatter.effort} />
+
+To be honest, not much effort was needed. From week to week this course probably took the lowest amount of effort. If you just show up to the workshops and actualyl think about how to solve the problems it feels like you're 70% of the way there. Maybe I did spend 3-4 hours max (with really 1 ish hour actually being productive) on the proof writeups, but even then, the time spent falls vastly short of the 15 hours per week expected of a 6 unit course. 
+
+The only times it got dicey is when I rushed my written notes in preparation for the exam and when we left our presentation poster to the last minute. But it all turned out fine in the end.
+
+</ReviewSection>
+
+<ReviewSection>
+
+### Delivery
+
+<StarBar total={5} filled={frontmatter.delivery} />
+
+I haven't really talked about how this course is delivered. I can't really comment on the lecturer since I never watched lectures. However, I can comment on the course admin staff and the tutors. The course admins were all surpisingly nice and down to earth, and pretty active on the forum (based on the limited time I went on it). Using gradescope is really cool to submit your proofs and I'm surprised this is the first course I used it in, and regrade requests are really fair and easy to do (although sometimes there's quite a bit of genuine mistakes in marking - learn to stand up for yourself). Also, the tutors (although somtimes their communication skills and overall vibes are a bit scuffed) are really good at leading us to solve problems (although they're sometimes a bit useless). The way this course is structured and presented though is phenomenal in terms of being both engaging and reinforcing the content we learn. If the content was delivered in a more boring way its likely the course wouldn't be as good (which I expect is the case with COMP3121, which appears to not really have that sense of joint problem solving).
+
+</ReviewSection>
+
+<ReviewSection>
+
+### Utility
+
+<StarBar total={5} filled={frontmatter.utility} />
+
+To be honest, since most people aren't going to be coming up with or analysing the time complexity of their own original algorithms, or constructing flow networks, or proving that a particular set of sets is a valid independent set for a matroid, there won't be anything 'useful' in terms of content that can be applied outside of the course. Unlike for example being able to design websites or at least understanding how the internals of computers work a bit more, this course may not be that applicable unless you are into training for computer science job interviews by doing data structures and algorithm questions. It is true that you develop pattern recognition and shit, but in all seriousness you won't get anything that you didn't have already. 
+
+But the low utility of this course isn't really a weakness because it also acts as a kind of safe space - instead of some other subjects where people already have experience and so they take it as a 'WAM-booster' like frontend, everyone is basically on the same page of knowing nothing unless they are a competitive programming god, so its a lot more comfortable and breathable. 
+
+</ReviewSection>
+

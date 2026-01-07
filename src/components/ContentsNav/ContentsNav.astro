@@ -1,6 +1,14 @@
 ---
+import type { ReviewData } from '../../content.config';
+
+interface Props {
+  data: ReviewData;
+}
+
 const { pathname } = Astro.url;
-const categories = ["Overview", "Difficulty", "Enjoyment", "Effort", "Delivery", "Utility"] as const;
+const { data } = Astro.props;
+const defaultCategories = ["Overview", "Difficulty", "Enjoyment", "Effort", "Delivery", "Utility"] as const;
+const categories = data.sections ?? defaultCategories;
 ---
 <nav class:list={[]} id="content-nav">
   <ul class:list={["grid grid-cols-1"]}>
